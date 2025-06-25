@@ -40,9 +40,9 @@ const Navigation = () => {
         <div className="flex justify-between items-center py-4">
           <div className="flex items-center space-x-3">
             <img
-              src="/lovable-uploads/a4c5b697-fb03-4d6a-b15e-bd3e701ae34b.png"
+              src="/lovable-uploads/a4761917-a271-4297-89ac-39fcad1960a7.png"
               alt="Yatindra Rai"
-              className="w-10 h-10 rounded-full border-2 border-purple-400"
+              className="w-12 h-12 rounded-full border-2 border-purple-400 object-cover"
             />
             <div className="text-2xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
               Yatindra Rai
