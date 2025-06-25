@@ -12,7 +12,9 @@ const Projects = () => {
         "Contributing to environmental conservation initiatives",
         "Scalable monitoring system"
       ],
-      gradient: "from-green-600 to-emerald-600"
+      gradient: "from-green-600 to-emerald-600",
+      codeLink: "https://github.com/YatindraRai002/greenaimodel",
+      liveLink: null
     },
     {
       title: "Trivinity Web Development Quiz App",
@@ -23,7 +25,9 @@ const Projects = () => {
         "Real-time scoring system",
         "Modular React components with optimal UX"
       ],
-      gradient: "from-blue-600 to-purple-600"
+      gradient: "from-blue-600 to-purple-600",
+      codeLink: "https://github.com/YatindraRai002/Quiz",
+      liveLink: "https://quiz-iota-two-27.vercel.app/"
     },
     {
       title: "Stock Market Prediction NIFTY 50 Index",
@@ -34,7 +38,35 @@ const Projects = () => {
         "Comprehensive data preprocessing",
         "Effective visualization of actual vs. predicted prices"
       ],
-      gradient: "from-orange-600 to-red-600"
+      gradient: "from-orange-600 to-red-600",
+      codeLink: "https://github.com/YatindraRai002/STOCK-MARKET-PREDICTION",
+      liveLink: null
+    },
+    {
+      title: "Expense Tracker",
+      description: "The Expense Tracker helps you easily track your spending and manage your budget. Record expenses, categorize them, and get a clear view of your financial activity over time. Stay organized and make smarter financial decisions with a simple, user-friendly tool to monitor your finances.",
+      technologies: ["HTML", "CSS", "JavaScript"],
+      highlights: [
+        "Easy expense tracking and categorization",
+        "Clear financial activity overview",
+        "User-friendly interface for budget management"
+      ],
+      gradient: "from-teal-600 to-cyan-600",
+      codeLink: "https://github.com/YatindraRai002/expense-tracker",
+      liveLink: "https://expense-tracker-jade-tau.vercel.app/"
+    },
+    {
+      title: "Spotify Clone",
+      description: "A fully functional Spotify clone that replicates the core features of the popular music streaming platform. Built with modern web technologies to provide an authentic user experience with music playback and playlist management.",
+      technologies: ["HTML", "CSS", "JavaScript"],
+      highlights: [
+        "Authentic Spotify-like user interface",
+        "Music playback functionality",
+        "Responsive design for all devices"
+      ],
+      gradient: "from-emerald-600 to-green-600",
+      codeLink: "https://github.com/YatindraRai002/Spotify-Clone",
+      liveLink: "https://spotify-clone-kohl-five.vercel.app/"
     }
   ];
 
@@ -96,14 +128,26 @@ const Projects = () => {
                 </div>
 
                 <div className="flex space-x-4">
-                  <button className="flex items-center space-x-2 text-gray-400 hover:text-white transition-colors duration-300">
+                  <a
+                    href={project.codeLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center space-x-2 text-gray-400 hover:text-white transition-colors duration-300"
+                  >
                     <Github size={16} />
                     <span className="text-sm">Code</span>
-                  </button>
-                  <button className="flex items-center space-x-2 text-gray-400 hover:text-white transition-colors duration-300">
-                    <ExternalLink size={16} />
-                    <span className="text-sm">Live Demo</span>
-                  </button>
+                  </a>
+                  {project.liveLink && (
+                    <a
+                      href={project.liveLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center space-x-2 text-gray-400 hover:text-white transition-colors duration-300"
+                    >
+                      <ExternalLink size={16} />
+                      <span className="text-sm">Live Demo</span>
+                    </a>
+                  )}
                 </div>
               </div>
             </div>
