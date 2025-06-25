@@ -48,15 +48,9 @@ const About = () => {
               <div className="text-pink-400">Technologies</div>
             </div>
             
-            <div className="bg-gradient-to-br from-blue-600/20 to-purple-600/20 backdrop-blur-sm rounded-lg p-6 border border-blue-500/20 transform transition-all duration-300 hover:scale-105">
-              <div className="text-3xl font-bold text-white mb-2">100%</div>
-              <div className="text-blue-400">Dedication</div>
-            </div>
             
-            <div className="bg-gradient-to-br from-purple-600/20 to-pink-600/20 backdrop-blur-sm rounded-lg p-6 border border-purple-500/20 transform transition-all duration-300 hover:scale-105">
-              <div className="text-3xl font-bold text-white mb-2">24/7</div>
-              <div className="text-purple-400">Learner</div>
-            </div>
+            
+          
           </div>
         </div>
       </div>
