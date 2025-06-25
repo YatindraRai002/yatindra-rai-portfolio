@@ -145,7 +145,7 @@ const Contact = () => {
         {/* Footer */}
         <div className="mt-20 pt-8 border-t border-purple-500/20 text-center">
           <p className="text-gray-400">
-            © 2024 Yatindra Rai. Built with React & Tailwind CSS.
+         
           </p>
         </div>
       </div>
