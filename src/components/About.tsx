@@ -39,7 +39,7 @@ const About = () => {
 
           <div className="grid grid-cols-2 gap-6">
             <div className="bg-gradient-to-br from-purple-600/20 to-pink-600/20 backdrop-blur-sm rounded-lg p-6 border border-purple-500/20 transform transition-all duration-300 hover:scale-105">
-              <div className="text-3xl font-bold text-white mb-2">10+</div>
+              <div className="text-3xl font-bold text-white mb-2">6+</div>
               <div className="text-purple-400">Projects Completed</div>
             </div>
             
@@ -55,7 +55,7 @@ const About = () => {
             
             <div className="bg-gradient-to-br from-purple-600/20 to-pink-600/20 backdrop-blur-sm rounded-lg p-6 border border-purple-500/20 transform transition-all duration-300 hover:scale-105">
               <div className="text-3xl font-bold text-white mb-2">24/7</div>
-              <div className="text-purple-400">Learning</div>
+              <div className="text-purple-400">Learner</div>
             </div>
           </div>
         </div>
