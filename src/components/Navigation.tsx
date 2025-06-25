@@ -23,10 +23,11 @@ const Navigation = () => {
   ];
 
   const handleDownloadCV = () => {
-    // Create a dummy PDF download - in real implementation, you'd have your actual CV file
+    // Create a link to download the CV
     const link = document.createElement('a');
-    link.href = '#'; // Replace with actual CV file path
+    link.href = '/lovable-uploads/cdd5f0b4-b29f-4783-a8bf-5a33ec1776d1.png'; // Using your CV image
     link.download = 'Yatindra_Rai_CV.pdf';
+    link.target = '_blank';
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
