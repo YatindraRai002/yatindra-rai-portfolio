@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { Github, Linkedin, ChevronDown } from "lucide-react";
 
@@ -103,15 +102,16 @@ const Hero = () => {
 
           {/* Profile Image */}
           <div className="flex justify-center lg:justify-end">
-            <div className="relative">
-              <div className="w-80 h-80 rounded-full overflow-hidden border-4 border-gradient-to-r from-purple-400 to-pink-400 transform transition-all duration-300 hover:scale-105">
+            <div className="relative group">
+              <div className="w-64 sm:w-80 h-64 sm:h-80 rounded-full overflow-hidden border-4 border-gradient-to-r from-purple-400 to-pink-400 transform transition-all duration-500 ease-in-out hover:scale-105 hover:rotate-3 hover:shadow-2xl hover:shadow-purple-400/30 group-hover:border-pink-400">
                 <img
                   src="/lovable-uploads/a4c5b697-fb03-4d6a-b15e-bd3e701ae34b.png"
                   alt="Yatindra Rai"
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover transition-all duration-500 ease-in-out group-hover:scale-110"
                 />
               </div>
-              <div className="absolute inset-0 rounded-full bg-gradient-to-r from-purple-400/20 to-pink-400/20 animate-pulse"></div>
+              <div className="absolute inset-0 rounded-full bg-gradient-to-r from-purple-400/20 to-pink-400/20 opacity-0 group-hover:opacity-100 transition-all duration-500 animate-pulse"></div>
+              <div className="absolute -inset-4 rounded-full bg-gradient-to-r from-purple-600/20 to-pink-600/20 blur-lg opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
             </div>
           </div>
         </div>

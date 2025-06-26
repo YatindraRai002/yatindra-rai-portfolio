@@ -40,12 +40,15 @@ const Navigation = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-4">
           <div className="flex items-center space-x-3">
-            <img
-              src="/lovable-uploads/a4c5b697-fb03-4d6a-b15e-bd3e701ae34b.png"
-              alt="Yatindra Rai"
-              className="w-12 h-12 rounded-full border-2 border-purple-400 object-cover"
-            />
-            <div className="text-2xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+            <div className="relative group">
+              <img
+                src="/lovable-uploads/a4c5b697-fb03-4d6a-b15e-bd3e701ae34b.png"
+                alt="Yatindra Rai"
+                className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border-2 border-purple-400 object-cover transition-all duration-500 ease-in-out transform group-hover:scale-110 group-hover:rotate-6 group-hover:border-pink-400 group-hover:shadow-lg group-hover:shadow-purple-400/50"
+              />
+              <div className="absolute inset-0 rounded-full bg-gradient-to-r from-purple-400/20 to-pink-400/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 animate-pulse"></div>
+            </div>
+            <div className="text-xl sm:text-2xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
               Yatindra Rai
             </div>
           </div>
