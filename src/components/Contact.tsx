@@ -223,7 +223,7 @@ const Contact = () => {
         {/* Footer */}
         <div className="mt-8 sm:mt-12 md:mt-16 lg:mt-20 pt-4 sm:pt-6 md:pt-8 border-t border-purple-500/20 text-center">
           <p className="text-gray-400 text-xs sm:text-sm">
-            © 2024 Yatindra Rai. All rights reserved.
+            © Crafted by Yatindra Rai — Connecting ideas through code.
           </p>
         </div>
       </div>
