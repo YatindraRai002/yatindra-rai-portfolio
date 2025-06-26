@@ -17,7 +17,7 @@ const LoadingSpinner = () => (
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50">
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
       <Navigation />
       <Suspense fallback={<LoadingSpinner />}>
         <Hero />

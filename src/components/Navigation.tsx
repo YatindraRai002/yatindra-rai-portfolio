@@ -42,7 +42,7 @@ const Navigation = () => {
 
   return (
     <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-      isScrolled ? "bg-white/95 backdrop-blur-md shadow-lg border-b border-gray-200" : "bg-white/80 backdrop-blur-sm"
+      isScrolled ? "bg-slate-900/95 backdrop-blur-md shadow-lg border-b border-purple-500/30" : "bg-slate-900/80 backdrop-blur-sm"
     }`}>
       {/* Time Display Bar */}
       <div className="bg-gradient-to-r from-blue-500 to-purple-600 text-white py-1 px-4">
@@ -67,7 +67,7 @@ const Navigation = () => {
               />
               <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-400/20 to-purple-400/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 animate-pulse"></div>
             </div>
-            <div className="text-lg sm:text-xl lg:text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+            <div className="text-lg sm:text-xl lg:text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
               Yatindra Rai
             </div>
           </div>
@@ -78,7 +78,7 @@ const Navigation = () => {
               <a
                 key={item.name}
                 href={item.href}
-                className="text-gray-700 hover:text-blue-600 transition-colors duration-300 relative group text-sm lg:text-base font-medium"
+                className="text-gray-300 hover:text-blue-400 transition-colors duration-300 relative group text-sm lg:text-base font-medium"
               >
                 {item.name}
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-500 to-purple-500 transition-all duration-300 group-hover:w-full"></span>
@@ -98,7 +98,7 @@ const Navigation = () => {
           <div className="md:hidden">
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="text-gray-700 hover:text-blue-600 transition-colors duration-300 p-2"
+              className="text-gray-300 hover:text-blue-400 transition-colors duration-300 p-2"
             >
               {isMobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
             </button>
@@ -107,12 +107,12 @@ const Navigation = () => {
 
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
-          <div className="md:hidden bg-white/95 backdrop-blur-md rounded-lg mt-2 py-4 border border-gray-200 shadow-lg">
+          <div className="md:hidden bg-slate-800/95 backdrop-blur-md rounded-lg mt-2 py-4 border border-purple-500/30 shadow-lg">
             {navItems.map((item) => (
               <a
                 key={item.name}
                 href={item.href}
-                className="block px-4 py-3 text-gray-700 hover:text-blue-600 hover:bg-gray-50 transition-colors duration-300"
+                className="block px-4 py-3 text-gray-300 hover:text-blue-400 hover:bg-slate-700/50 transition-colors duration-300"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 {item.name}
