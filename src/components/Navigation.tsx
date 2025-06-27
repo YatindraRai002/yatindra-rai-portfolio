@@ -80,8 +80,8 @@ const Navigation = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center py-4">
             <div className="flex items-center">
-              <div className="w-10 h-10 bg-gradient-to-br from-slate-900 to-slate-700 rounded-xl flex items-center justify-center shadow-lg animate-float hover:animate-glow transition-all duration-300 hover:scale-110">
-                <span className="text-white font-bold text-lg animate-pulse">YR</span>
+              <div className="w-10 h-10 bg-gradient-to-br from-slate-900 to-slate-700 rounded-xl flex items-center justify-center shadow-lg">
+                <span className="text-white font-bold text-lg">YR</span>
               </div>
             </div>
 
@@ -99,7 +99,7 @@ const Navigation = () => {
               ))}
               <button
                 onClick={handleDownloadCV}
-                className="flex items-center space-x-2 bg-slate-900 hover:bg-slate-800 text-white px-4 py-2 rounded-lg transition-all duration-200 text-sm font-medium shadow-sm hover:scale-105 hover:shadow-md"
+                className="flex items-center space-x-2 bg-slate-900 hover:bg-slate-800 text-white px-4 py-2 rounded-lg transition-all duration-200 text-sm font-medium shadow-sm"
               >
                 <Download size={16} />
                 <span>Resume</span>
@@ -132,7 +132,7 @@ const Navigation = () => {
               ))}
               <button
                 onClick={handleDownloadCV}
-                className="flex items-center space-x-2 mx-4 mt-2 bg-slate-900 hover:bg-slate-800 text-white px-4 py-2 rounded-lg transition-all duration-200 w-full justify-center font-medium hover:scale-105"
+                className="flex items-center space-x-2 mx-4 mt-2 bg-slate-900 hover:bg-slate-800 text-white px-4 py-2 rounded-lg transition-all duration-200 w-full justify-center font-medium"
               >
                 <Download size={16} />
                 <span>Resume</span>
@@ -145,7 +145,7 @@ const Navigation = () => {
       {/* Password Modal */}
       {showPasswordModal && (
         <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-          <div className="bg-white rounded-xl shadow-2xl p-6 w-full max-w-md animate-scale-in">
+          <div className="bg-white rounded-xl shadow-2xl p-6 w-full max-w-md">
             <h3 className="text-lg font-semibold text-slate-900 mb-4">Resume Access</h3>
             <p className="text-slate-600 mb-4">Please enter the password to download the resume:</p>
             <form onSubmit={handlePasswordSubmit}>

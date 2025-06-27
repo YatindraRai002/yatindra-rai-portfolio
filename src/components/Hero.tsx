@@ -79,7 +79,7 @@ const Hero = () => {
                 href="https://github.com/YatindraRai002"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-slate-600 hover:text-slate-900 transition-colors duration-300 transform hover:scale-110"
+                className="text-slate-600 hover:text-slate-900 transition-colors duration-300"
               >
                 <Github size={24} className="sm:w-7 sm:h-7" />
               </a>
@@ -87,7 +87,7 @@ const Hero = () => {
                 href="https://www.linkedin.com/in/yatindra-rai-6a3181324/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-slate-600 hover:text-slate-900 transition-colors duration-300 transform hover:scale-110"
+                className="text-slate-600 hover:text-slate-900 transition-colors duration-300"
               >
                 <Linkedin size={24} className="sm:w-7 sm:h-7" />
               </a>
@@ -96,16 +96,16 @@ const Hero = () => {
 
           {/* Profile Image */}
           <div className="flex justify-center lg:justify-end order-1 lg:order-2">
-            <div className="relative group">
-              <div className="w-48 sm:w-64 md:w-72 lg:w-80 h-48 sm:h-64 md:h-72 lg:h-80 rounded-full overflow-hidden border-4 border-slate-200 hover:border-slate-900 transform transition-all duration-500 ease-in-out hover:scale-105 hover:rotate-3 hover:shadow-2xl hover:shadow-slate-900/20 group-hover:border-slate-900 animate-float">
+            <div className="relative">
+              {/* Light glow effect */}
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-400/20 to-purple-400/20 rounded-full blur-xl scale-110"></div>
+              <div className="w-48 sm:w-64 md:w-72 lg:w-80 h-48 sm:h-64 md:h-72 lg:h-80 rounded-full overflow-hidden border-4 border-slate-200 hover:border-slate-900 transition-all duration-300 relative z-10">
                 <img
                   src="/lovable-uploads/a4c5b697-fb03-4d6a-b15e-bd3e701ae34b.png"
                   alt="Yatindra Rai"
-                  className="w-full h-full object-cover transition-all duration-500 ease-in-out group-hover:scale-110"
+                  className="w-full h-full object-cover"
                 />
               </div>
-              <div className="absolute inset-0 rounded-full bg-gradient-to-r from-slate-900/10 to-slate-700/10 opacity-0 group-hover:opacity-100 transition-all duration-500 animate-pulse"></div>
-              <div className="absolute -inset-4 rounded-full bg-gradient-to-r from-slate-900/10 to-slate-700/10 blur-lg opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
             </div>
           </div>
         </div>
