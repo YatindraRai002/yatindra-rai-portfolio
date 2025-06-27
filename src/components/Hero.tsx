@@ -36,39 +36,39 @@ const Hero = () => {
   }, [displayText, currentIndex, isDeleting, texts]);
 
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden bg-white pt-20">
+    <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           {/* Text Content */}
           <div className="text-center lg:text-left order-2 lg:order-1">
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 lg:mb-6">
-              <span className="text-slate-900">Hi, I'm </span>
-              <span className="bg-gradient-to-r from-slate-900 to-slate-700 bg-clip-text text-transparent">
+              <span className="text-white">Hi, I'm </span>
+              <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
                 Yatindra Rai
               </span>
             </h1>
             
-            <div className="text-xl sm:text-2xl lg:text-3xl text-slate-600 mb-6 lg:mb-8 h-10 lg:h-12">
+            <div className="text-xl sm:text-2xl lg:text-3xl text-gray-300 mb-6 lg:mb-8 h-10 lg:h-12">
               <span className="inline-block">
                 {displayText}
-                <span className="animate-pulse text-slate-900">|</span>
+                <span className="animate-pulse text-blue-400">|</span>
               </span>
             </div>
 
-            <p className="text-base sm:text-lg text-slate-600 mb-6 lg:mb-8 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+            <p className="text-base sm:text-lg text-gray-300 mb-6 lg:mb-8 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
               Passionate about creating innovative web experiences and exploring the fascinating world of AI and Machine Learning.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start">
               <a
                 href="#contact"
-                className="btn-primary text-center"
+                className="bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 text-white px-6 py-3 rounded-lg font-medium transition-all duration-200 shadow-sm hover:shadow-md text-center"
               >
                 Get In Touch
               </a>
               <a
                 href="#projects"
-                className="btn-secondary text-center"
+                className="bg-slate-800/50 hover:bg-slate-700/50 text-white px-6 py-3 rounded-lg font-medium border border-blue-500/30 transition-all duration-200 shadow-sm hover:shadow-md text-center backdrop-blur-sm"
               >
                 View My Work
               </a>
@@ -79,7 +79,7 @@ const Hero = () => {
                 href="https://github.com/YatindraRai002"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-slate-600 hover:text-slate-900 transition-colors duration-300"
+                className="text-gray-300 hover:text-white transition-colors duration-300"
               >
                 <Github size={24} className="sm:w-7 sm:h-7" />
               </a>
@@ -87,7 +87,7 @@ const Hero = () => {
                 href="https://www.linkedin.com/in/yatindra-rai-6a3181324/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-slate-600 hover:text-slate-900 transition-colors duration-300"
+                className="text-gray-300 hover:text-white transition-colors duration-300"
               >
                 <Linkedin size={24} className="sm:w-7 sm:h-7" />
               </a>
@@ -99,7 +99,7 @@ const Hero = () => {
             <div className="relative">
               {/* Light glow effect */}
               <div className="absolute inset-0 bg-gradient-to-r from-blue-400/20 to-purple-400/20 rounded-full blur-xl scale-110"></div>
-              <div className="w-48 sm:w-64 md:w-72 lg:w-80 h-48 sm:h-64 md:h-72 lg:h-80 rounded-full overflow-hidden border-4 border-slate-200 hover:border-slate-900 transition-all duration-300 relative z-10">
+              <div className="w-48 sm:w-64 md:w-72 lg:w-80 h-48 sm:h-64 md:h-72 lg:h-80 rounded-full overflow-hidden border-4 border-blue-500/30 hover:border-blue-400/50 transition-all duration-300 relative z-10">
                 <img
                   src="/lovable-uploads/a4c5b697-fb03-4d6a-b15e-bd3e701ae34b.png"
                   alt="Yatindra Rai"
@@ -112,8 +112,8 @@ const Hero = () => {
       </div>
 
       {/* Scroll Indicator */}
-      <div className="absolute bottom-4 sm:bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-        <ChevronDown className="text-slate-600" size={28} />
+      <div className="absolute bottom-4 sm:bottom-8 left-1/2 transform -translate-x-1/2">
+        <ChevronDown className="text-gray-300" size={28} />
       </div>
     </section>
   );
