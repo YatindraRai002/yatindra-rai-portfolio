@@ -11,13 +11,13 @@ const Contact = lazy(() => import("@/components/Contact"));
 
 const LoadingSpinner = () => (
   <div className="flex items-center justify-center py-20">
-    <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
+    <div className="animate-spin rounded-full h-8 w-8 border-2 border-slate-900 border-t-transparent"></div>
   </div>
 );
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-white">
       <Navigation />
       <Suspense fallback={<LoadingSpinner />}>
         <Hero />
