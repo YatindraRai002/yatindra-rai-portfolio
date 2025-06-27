@@ -32,7 +32,7 @@ const Navigation = () => {
 
   const handleDownloadCV = () => {
     const link = document.createElement('a');
-    link.href = '/lovable-uploads/cdd5f0b4-b29f-4783-a8bf-5a33ec1776d1.png';
+    link.href = 'https://github.com/YatindraRai002/yatindra-rai-portfolio/blob/main/Yatindra%20rai_resume.pdf';
     link.download = 'Yatindra_Rai_CV.pdf';
     link.target = '_blank';
     document.body.appendChild(link);
