@@ -2,7 +2,7 @@
 import { lazy, Suspense } from "react";
 import Navigation from "@/components/Navigation";
 
-// Lazy load components for better performance
+
 const Hero = lazy(() => import("@/components/Hero"));
 const About = lazy(() => import("@/components/About"));
 const Projects = lazy(() => import("@/components/Projects"));
