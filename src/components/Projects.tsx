@@ -6,7 +6,7 @@ const Projects = () => {
     {
       title: "Green AI",
       description: "Developed a U-Net-based machine learning pipeline to detect saplings and estimate survival rates from drone imagery. Implemented geospatial visualization and parallel image analysis for scalable monitoring of afforestation efforts.",
-      technologies: ["Python", "PyTorch", "U-Net", "Image Processing"],
+      technologies: ["Python", "PyTorch", "U-Net","Cuda", "Image Processing"],
       highlights: [
         "Achieved accurate localization of dead saplings",
         "Contributing to environmental conservation initiatives",
