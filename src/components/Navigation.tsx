@@ -1,11 +1,10 @@
 
 import { useState, useEffect } from "react";
-import { Download, Menu, X, Clock } from "lucide-react";
+import { Download, Menu, X } from "lucide-react";
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [currentTime, setCurrentTime] = useState(new Date());
   const [showPasswordModal, setShowPasswordModal] = useState(false);
   const [password, setPassword] = useState("");
   const [passwordError, setPasswordError] = useState("");
@@ -16,13 +15,6 @@ const Navigation = () => {
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentTime(new Date());
-    }, 1000);
-    return () => clearInterval(timer);
   }, []);
 
   const navItems = [
@@ -65,18 +57,6 @@ const Navigation = () => {
       <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${
         isScrolled ? "bg-slate-900/95 backdrop-blur-md shadow-lg border-b border-blue-500/30" : "bg-slate-900/90 backdrop-blur-sm"
       }`}>
-        {/* Time Display Bar */}
-        <div className="bg-gradient-to-r from-blue-600 to-purple-600 text-white py-2 px-4">
-          <div className="max-w-7xl mx-auto flex items-center justify-center sm:justify-end">
-            <div className="flex items-center space-x-2 text-xs sm:text-sm font-medium">
-              <Clock size={14} />
-              <span>{currentTime.toLocaleTimeString()}</span>
-              <span className="hidden sm:inline">•</span>
-              <span className="hidden sm:inline">{currentTime.toLocaleDateString()}</span>
-            </div>
-          </div>
-        </div>
-        
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center py-4">
             <div className="flex items-center">
