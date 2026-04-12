@@ -5,7 +5,7 @@ const Skills = () => {
   const skillCategories = [
     {
       title: "Linguistic Core",
-      skills: ["C++", "Python"],
+      skills: ["C","C++", "Python","Java"],
       icon: Terminal,
       color: "text-blue-400",
       bg: "bg-blue-400/10"
@@ -18,10 +18,12 @@ const Skills = () => {
         "RAG Pipelines", 
         "Multi-Agent Systems", 
         "LLM Evaluation", 
-        "EEG",
-        "Representation Learning",
+        "EEG:Representation Learning",
+        "Deep Learning",
+        "Machine Learning",
+       "PyTorch"
         "TensorFlow",
-        "Analysis skills"
+        
       ],
       icon: Brain,
       color: "text-primary",
@@ -50,7 +52,7 @@ const Skills = () => {
     },
     {
       title: "CyberOps /Tools",
-      skills: ["Docker", "Git", "GitHub", "Render Deployment"],
+      skills: ["Docker", "Git", "GitHub", "Render "],
       icon: Shield,
       color: "text-cyan-400",
       bg: "bg-cyan-400/10"
