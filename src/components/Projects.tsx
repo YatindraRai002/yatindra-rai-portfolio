@@ -15,7 +15,7 @@ const Projects = () => {
     },
     {
       title: "VeraciRAG",
-      description: "Truth verified multi-agent RAG system with Guardian -->Generator --> Evaluator loops. Fully local, zero API cost pipeline achieving 89% accuracy.",
+      description: "Truth verified multi-agent RAG system with Guardian --> Generator --> Evaluator loops. Fully local, zero API cost pipeline achieving 89% accuracy.",
       technologies: ["Ollama", "ChromaDB", "BERT", "FAISS", "Python"],
       status: "Verified",
       gradient: "from-cyan-500/20 to-indigo-500/20",
