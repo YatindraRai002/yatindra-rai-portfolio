@@ -21,8 +21,8 @@ const Skills = () => {
         "EEG:Representation Learning",
         "Deep Learning",
         "Machine Learning",
-       "PyTorch"
-        "TensorFlow",
+       "PyTorch",
+        "TensorFlow"
         
       ],
       icon: Brain,
