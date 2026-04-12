@@ -87,7 +87,7 @@ const About = () => {
                     <p className="text-primary font-black text-xs uppercase tracking-widest mt-1">B.Tech in Computer Science</p>
                     <div className="flex items-center gap-2 mt-3 text-gray-500 text-sm">
                        <Target size={14} />
-                       <span>Chennai, India • Class of 2026</span>
+                       <span>Chennai, India • Class of 2024</span>
                     </div>
                  </div>
                </div>
