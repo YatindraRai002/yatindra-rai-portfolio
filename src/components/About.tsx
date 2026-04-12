@@ -1,113 +1,147 @@
-
-import { Award, Target, Users } from "lucide-react";
+import { Award, Target, Users, Binary, Cpu, Network, Sparkles, BookOpen } from "lucide-react";
+import { motion } from "framer-motion";
 
 const About = () => {
   const stats = [
-    { value: "6+", label: "Projects Completed", icon: Target },
-    { value: "5+", label: "Technologies Mastered", icon: Award },
-    { value: "100%", label: "Dedication & Focus", icon: Users }
+    { value: "12+", label: "Neural Models", icon: Binary, color: "text-blue-400" },
+    { value: "08+", label: "Web Ecosystems", icon: Cpu, color: "text-primary" },
+    { value: "100%", label: "System Accuracy", icon: Target, color: "text-pink-400" }
   ];
 
   return (
-    <section id="about" className="py-20 lg:py-28 relative overflow-hidden">
-      {/* Background effects */}
-      <div className="absolute inset-0 bg-gradient-to-br from-blue-900/10 via-slate-900 to-purple-900/10"></div>
-      <div className="absolute top-0 left-0 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl"></div>
-      <div className="absolute bottom-0 right-0 w-96 h-96 bg-purple-500/5 rounded-full blur-3xl"></div>
-      
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="text-center mb-16 lg:mb-20">
-          <h2 className="text-4xl lg:text-5xl font-bold mb-4">
-            <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-              About Me
-            </span>
-          </h2>
-          <div className="w-24 h-1.5 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto rounded-full mb-6"></div>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-            A passionate developer focused on creating exceptional digital experiences and solving real-world problems with code.
-          </p>
+    <section id="about" className="py-32 relative overflow-hidden">
+      <div className="container mx-auto px-6 relative z-10">
+        
+        {/* Section Header */}
+        <div className="flex flex-col items-center mb-24">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 backdrop-blur-md mb-6"
+          >
+            <Network size={14} className="text-primary" />
+            <span className="text-[10px] font-black uppercase tracking-[0.2em] text-primary">Identity Terminal</span>
+          </motion.div>
+          
+          <motion.h2 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+            className="text-4xl lg:text-6xl font-black text-white mb-6 text-center tracking-tight"
+          >
+            Decoding My <span className="bg-gradient-to-r from-primary to-blue-400 bg-clip-text text-transparent">Digital Soul</span>
+          </motion.h2>
+          <div className="w-12 h-1 bg-primary rounded-full" />
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center mb-20">
-          <div className="space-y-6">
-            <div className="group">
-              <p className="text-lg text-gray-300 leading-relaxed hover:text-gray-200 transition-colors duration-300">
-                I'm a passionate <span className="font-semibold text-blue-400">Web Developer</span> with a strong enthusiasm for <span className="font-semibold text-purple-400">AI and Machine Learning</span>. I enjoy building user-friendly, scalable web applications and am always exploring how intelligent systems can make digital experiences smarter and more intuitive.
-              </p>
-            </div>
-            
-            <div className="group">
-              <p className="text-lg text-gray-300 leading-relaxed hover:text-gray-200 transition-colors duration-300">
-                Beyond technical skills, I take pride in being both a <span className="font-semibold text-blue-400">dependable team player</span> and a <span className="font-semibold text-purple-400">confident team leader</span>—someone who believes in collaboration, clear communication, and achieving excellence together. I'm committed to writing clean, maintainable code and continuously learning new technologies.
-              </p>
-            </div>
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+          
+          {/* Narrative Content */}
+          <div className="lg:col-span-7 space-y-8">
+            <motion.div 
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="p-8 rounded-[32px] bg-white/5 border border-white/10 backdrop-blur-xl relative overflow-hidden group"
+            >
+               <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+                 <Binary size={80} />
+               </div>
+               
+               <h3 className="text-2xl font-bold text-white mb-6 flex items-center gap-3">
+                 <Sparkles className="text-primary" size={24} />
+                 The Mission
+               </h3>
+               
+               <p className="text-gray-400 text-lg leading-relaxed mb-6">
+                 I am a <span className="text-white font-bold">Neural Architect</span> and <span className="text-white font-bold">Full-Stack Explorer</span> currently navigating the intersection of artificial intelligence and high-performance web systems. 
+                 My journey is fueled by a desire to build <span className="text-primary italic">autonomous experiences</span> that learn, adapt, and empower users.
+               </p>
+               
+               <p className="text-gray-400 text-lg leading-relaxed">
+                 Beyond the syntax, I orchestrate complex data flows and design seamless interfaces. I believe that the future of the web lies in its ability to 
+                 anticipate human needs through <span className="text-white font-medium uppercase tracking-tighter">Intelligent Design</span>.
+               </p>
+            </motion.div>
 
-            <div className="bg-gradient-to-br from-slate-800/60 to-slate-900/40 backdrop-blur-sm rounded-xl border border-blue-500/40 hover:border-blue-400/60 p-6 lg:p-8 transition-all duration-300 transform hover:scale-105 hover:shadow-xl">
-              <h3 className="text-2xl font-bold text-white mb-2 flex items-center gap-2">
-                <Award className="text-blue-400" />
-                Education
-              </h3>
-              <div className="space-y-3">
-                <div>
-                  <p className="text-white font-semibold text-lg">S.R.M Institute of Science and Technology</p>
-                  <p className="text-blue-300 font-medium">B.Tech in Computer Science</p>
-                </div>
-                <p className="text-gray-400 flex items-center gap-2">
-                  📍 Chennai, Tamil Nadu
-                </p>
-              </div>
-            </div>
+            <motion.div 
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2 }}
+              className="p-8 rounded-[32px] bg-white/5 border border-white/10 backdrop-blur-xl group hover:border-primary/30 transition-colors"
+            >
+               <h3 className="text-2xl font-bold text-white mb-6 flex items-center gap-3">
+                 <BookOpen className="text-blue-400" size={24} />
+                 Background Logic
+               </h3>
+               
+               <div className="flex flex-col sm:flex-row gap-6 items-center">
+                 <div className="w-20 h-20 rounded-2xl bg-blue-500/10 flex items-center justify-center text-blue-400 shrink-0">
+                    <Award size={40} />
+                 </div>
+                 <div>
+                    <h4 className="text-xl font-bold text-white leading-tight">S.R.M Institute of Science and Technology</h4>
+                    <p className="text-primary font-black text-xs uppercase tracking-widest mt-1">B.Tech in Computer Science</p>
+                    <div className="flex items-center gap-2 mt-3 text-gray-500 text-sm">
+                       <Target size={14} />
+                       <span>Chennai, India • Class of 2026</span>
+                    </div>
+                 </div>
+               </div>
+            </motion.div>
           </div>
 
-          {/* Stats Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 gap-6 lg:gap-8">
-            {stats.map((stat, index) => {
-              const Icon = stat.icon;
-              return (
-                <div
-                  key={index}
-                  className="group relative overflow-hidden bg-gradient-to-br from-slate-800/60 to-slate-900/40 backdrop-blur-sm rounded-xl border border-blue-500/40 hover:border-blue-400/60 p-6 lg:p-8 transition-all duration-300 transform hover:scale-105 hover:shadow-xl"
+          {/* Stats & Core Values */}
+          <div className="lg:col-span-5 space-y-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-6">
+              {stats.map((stat, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.1 }}
+                  className="p-6 rounded-3xl bg-white/5 border border-white/10 backdrop-blur-md flex items-center gap-6 group hover:bg-white/10 transition-all cursor-default"
                 >
-                  {/* Gradient overlay on hover */}
-                  <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-600/20 to-purple-600/20 opacity-0 group-hover:opacity-100 blur-lg transition-opacity duration-300 -z-10"></div>
-                  
-                  <div className="flex items-center gap-4">
-                    <div className="p-3 bg-blue-500/20 rounded-lg group-hover:bg-blue-500/30 transition-all duration-300">
-                      <Icon className="text-blue-400 group-hover:text-blue-300" size={32} />
-                    </div>
-                    <div>
-                      <div className="text-4xl lg:text-5xl font-bold text-transparent bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text group-hover:from-blue-300 group-hover:to-purple-300 transition-all">
-                        {stat.value}
-                      </div>
-                      <p className="text-gray-400 group-hover:text-gray-300 transition-colors mt-1">{stat.label}</p>
-                    </div>
+                  <div className={`p-4 rounded-2xl bg-white/5 border border-white/10 ${stat.color} group-hover:scale-110 transition-transform`}>
+                    <stat.icon size={28} />
                   </div>
-                </div>
-              );
-            })}
-          </div>
-        </div>
+                  <div>
+                    <div className="text-3xl font-black text-white tracking-widest">{stat.value}</div>
+                    <div className="text-[10px] font-bold text-gray-500 uppercase tracking-[0.2em]">{stat.label}</div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
 
-        {/* Additional Info Section */}
-        <div className="bg-gradient-to-r from-blue-500/10 via-purple-500/10 to-pink-500/10 backdrop-blur-sm rounded-2xl border border-blue-500/30 p-8 lg:p-12">
-          <h3 className="text-2xl font-bold text-white mb-6">What Drives Me</h3>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
-            <div className="group">
-              <div className="h-1 w-12 bg-gradient-to-r from-blue-400 to-blue-600 rounded-full mb-4 group-hover:w-20 transition-all duration-300"></div>
-              <h4 className="text-lg font-semibold text-white mb-2">Innovation</h4>
-              <p className="text-gray-400">Constantly exploring new technologies and creative solutions to build better digital products.</p>
-            </div>
-            <div className="group">
-              <div className="h-1 w-12 bg-gradient-to-r from-purple-400 to-purple-600 rounded-full mb-4 group-hover:w-20 transition-all duration-300"></div>
-              <h4 className="text-lg font-semibold text-white mb-2">Excellence</h4>
-              <p className="text-gray-400">Committed to delivering high-quality code, maintainability, and exceptional user experiences.</p>
-            </div>
-            <div className="group">
-              <div className="h-1 w-12 bg-gradient-to-r from-pink-400 to-pink-600 rounded-full mb-4 group-hover:w-20 transition-all duration-300"></div>
-              <h4 className="text-lg font-semibold text-white mb-2">Growth</h4>
-              <p className="text-gray-400">Always learning, adapting, and pushing boundaries to become a better developer and person.</p>
-            </div>
+            <motion.div 
+               initial={{ opacity: 0, scale: 0.9 }}
+               whileInView={{ opacity: 1, scale: 1 }}
+               viewport={{ once: true }}
+               className="p-8 rounded-[32px] bg-gradient-to-br from-primary/20 via-transparent to-blue-500/10 border border-white/10 backdrop-blur-3xl relative overflow-hidden"
+            >
+               <h4 className="text-white font-bold mb-4 uppercase tracking-[0.2em] text-xs">Operational DNA</h4>
+               <ul className="space-y-4">
+                 {[
+                   { t: "Deep Synthesis", d: "Merging AI with React Ecosystems" },
+                   { t: "Quantum UI", d: "Ultra-responsive, glassmorphic interfaces" },
+                   { t: "Neural Flow", d: "Optimized data processing pipelines" }
+                 ].map((item, i) => (
+                   <li key={i} className="flex gap-4">
+                      <div className="w-1 h-auto bg-primary rounded-full self-stretch" />
+                      <div>
+                         <div className="text-white font-bold text-sm">{item.t}</div>
+                         <div className="text-gray-500 text-xs">{item.d}</div>
+                      </div>
+                   </li>
+                 ))}
+               </ul>
+            </motion.div>
           </div>
+
         </div>
       </div>
     </section>

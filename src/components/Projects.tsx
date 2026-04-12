@@ -1,184 +1,159 @@
-
-import { ExternalLink, Github, Sparkles } from "lucide-react";
+import { ExternalLink, Github, Sparkles, Layout, Database, Blocks, Video, Shield, Cpu, Zap, Mic, Workflow } from "lucide-react";
+import { motion } from "framer-motion";
 
 const Projects = () => {
   const projects = [
     {
-      title: "Green AI",
-      description: "Developed a U-Net-based machine learning pipeline to detect saplings and estimate survival rates from drone imagery. Implemented geospatial visualization and parallel image analysis for scalable monitoring of afforestation efforts.",
-      technologies: ["Python", "PyTorch", "U-Net","Cuda", "Image Processing"],
-      highlights: [
-        "Achieved accurate localization of dead saplings",
-        "Contributing to environmental conservation initiatives",
-        "Scalable monitoring system"
-      ],
-      gradient: "from-green-600 to-emerald-600",
-      codeLink: "https://github.com/YatindraRai002/greenaimodel",
+      title: "SynapseVideo",
+      description: "Multi-modal video understanding platform. RAG-based search across transcripts and visual frames using Whisper ASR and CLIP embeddings.",
+      technologies: ["FastAPI", "Whisper", "CLIP", "Qdrant", "Next.js"],
+      status: "Operational",
+      gradient: "from-indigo-500/20 to-purple-500/20",
+      codeLink: "https://github.com/YatindraRai002/SynapseVideo-Multi-Modal-Video-Understanding-Platform.git",
       liveLink: null,
-      emoji: "🌱"
+      icon: Video
     },
     {
-      title: "AuraCare Hospital Management System",
-      description: "Built a full-stack Hospital Management System using React 19, Node.js, Express.js, and MongoDB (MERN). Implemented JWT authentication, bcrypt password hashing & Role-Based Access Control for secure login (Admin/Doctor/Patient).",
-      technologies: ["React", "MongoDB", "Node.js", "Express.js", "JWT", "Cloudinary"],
-      highlights: [
-        "Patient Portal & Admin Dashboard with responsive UI/UX",
-        "AI chatbot for automatic department recommendations based on symptoms",
-        "RESTful APIs with real-time notifications using Notistack & Axios interceptors"
-      ],
-      gradient: "from-blue-600 to-cyan-600",
-      codeLink: "https://github.com/YatindraRai002/Hospital-Management-System.git",
+      title: "VeraciRAG",
+      description: "Truth-verified multi-agent RAG system with Guardian-Generator-Evaluator loops. Fully local, zero-API-cost pipeline achieving 85% accuracy.",
+      technologies: ["Ollama", "ChromaDB", "BERT", "FAISS", "Python"],
+      status: "Verified",
+      gradient: "from-cyan-500/20 to-indigo-500/20",
+      codeLink: "https://github.com/YatindraRai002/VeraciRAG.git",
       liveLink: null,
-      emoji: "🏥"
+      icon: Shield
     },
     {
-      title: "NLP Fusion",
-      description: "Developed a collection of NLP projects including Spam SMS detection, Fake News classification, Movie Genre multi-label classification, Sentiment Analysis of restaurant reviews, and Stock Market Sentiment Analysis. Implemented end-to-end pipelines with text preprocessing and feature engineering.",
-      technologies: ["Python", "Logistic Regression", "scikit-learn", "Naive Bayes", "TF-IDF", "LSTM"],
-      highlights: [
-        "Achieved up to 99% accuracy across multiple NLP tasks",
-        "End-to-end pipelines with advanced feature engineering",
-        "Deployed models using Flask/Streamlit for real-world applicability"
-      ],
-      gradient: "from-purple-600 to-pink-600",
-      codeLink: "https://github.com/YatindraRai002/NLP-Projects.git",
-      liveLink: null,
-      emoji: "🤖"
+      title: "NicheForge",
+      description: "Automated end-to-end LLM fine-tuning ecosystem. Streamlining synthetic dataset generation, LoRA training via Unsloth, and multi-backend inference.",
+      technologies: ["Unsloth", "Llama 3", "Groq", "FastAPI", "React"],
+      status: "Stable",
+      gradient: "from-amber-500/20 to-orange-500/20",
+      codeLink: "https://github.com/YatindraRai002/NicheForge.git",
+      liveLink: "https://nicheforge-1.onrender.com/",
+      icon: Cpu
     },
     {
-      title: "Kala-Kart",
-      description: "AI-Powered Artisan Discovery Platform connecting 50,000+ traditional Indian artisans with customers using Google Gemini AI for natural language search. Built React/TypeScript frontend and Flask REST API backend with RAG-based conversational AI.",
-      technologies: ["TypeScript", "React", "Python", "Flask", "Google Gemini AI", "Tailwind CSS", "Firebase"],
-      highlights: [
-        "Reduced artisan discovery time by 80% with zero-commission connections",
-        "Multi-language NLP (Hindi/English) with 90% query accuracy",
-        "Analytics dashboard tracking 38 craft categories across 28 states"
-      ],
-      gradient: "from-orange-600 to-red-600",
-      codeLink: "https://github.com/YatindraRai002/Local-Artisian-AI.git",
+      title: "IntelliRoute-AI",
+      description: "Intelligent inference router directing prompts to local LLMs or frontier APIs based on complexity. Optimized inference costs by 85% with an event-driven architecture.",
+      technologies: ["FastAPI", "Kafka", "Redis", "Ollama", "Docker"],
+      status: "Active",
+      gradient: "from-orange-500/20 to-red-500/20",
+      codeLink: "https://github.com/YatindraRai002/IntelliRoute-AI.git",
       liveLink: null,
-      emoji: "🎨"
+      icon: Zap
     },
     {
-      title: "Spotify Clone",
-      description: "A fully functional Spotify clone that replicates the core features of the popular music streaming platform. Built with modern web technologies to provide an authentic user experience with music playback and playlist management.",
-      technologies: ["HTML", "CSS", "JavaScript"],
-      highlights: [
-        "Authentic Spotify-like user interface",
-        "Music playback functionality",
-        "Responsive design for all devices"
-      ],
-      gradient: "from-emerald-600 to-green-600",
-      codeLink: "https://github.com/YatindraRai002/Spotify-Clone",
-      liveLink: "https://spotify-clone-kohl-five.vercel.app/",
-      emoji: "🎵"
+      title: "RecallVision",
+      description: "Voice-first AI assistant integrating Whisper-based ASR with a RAG pipeline. Modular microservices architecture for real-time multilingual querying and intelligent generation.",
+      technologies: ["FastAPI", "Whisper", "FAISS", "Llama 3.1", "Streamlit"],
+      status: "Deployed",
+      gradient: "from-indigo-500/20 to-blue-500/20",
+      codeLink: "https://github.com/YatindraRai002/RacallVision.git",
+      liveLink: null,
+      icon: Mic
+    },
+    {
+      title: "FlowForge-AI",
+      description: "Enterprise-grade multi-agent AI system for autonomous marketing campaigns. Orchestrating specialized agents with real-time SSE streaming and Groq-powered inference.",
+      technologies: ["FastAPI", "Groq", "Multi-Agent", "SSE", "React 19"],
+      status: "Stable",
+      gradient: "from-purple-500/20 to-indigo-500/20",
+      codeLink: "https://github.com/YatindraRai002/FlowForge-AI.git",
+      liveLink: "https://flowforge-ai.onrender.com/",
+      icon: Workflow
     }
   ];
 
   return (
-    <section id="projects" className="py-20 lg:py-28 relative overflow-hidden">
-      {/* Background effects */}
-      <div className="absolute inset-0 bg-gradient-to-br from-purple-900/10 via-slate-900 to-pink-900/10"></div>
-      <div className="absolute top-0 right-0 w-96 h-96 bg-purple-500/5 rounded-full blur-3xl"></div>
-      <div className="absolute bottom-0 left-0 w-96 h-96 bg-pink-500/5 rounded-full blur-3xl"></div>
-      
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="text-center mb-16 lg:mb-20">
-          <h2 className="text-4xl lg:text-5xl font-bold mb-4">
-            <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
-              Featured Projects
-            </span>
+    <section id="projects" className="py-32 relative overflow-hidden">
+      <div className="container mx-auto px-6 relative z-10">
+
+        {/* Header */}
+        <div className="flex flex-col items-center mb-24">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            className="px-4 py-1.5 rounded-full bg-white/5 border border-white/10 backdrop-blur-xl mb-6 flex items-center gap-2"
+          >
+            <div className="w-2 h-2 rounded-full bg-primary animate-ping" />
+            <span className="text-[10px] font-black uppercase tracking-[0.3em] text-gray-400">Project Archives // Active</span>
+          </motion.div>
+
+          <h2 className="text-4xl lg:text-6xl font-black text-white text-center mb-6 tracking-tight">
+            Advanced <span className="bg-gradient-to-r from-primary to-blue-400 bg-clip-text text-transparent">Deployment Units</span>
           </h2>
-          <div className="w-24 h-1.5 bg-gradient-to-r from-purple-400 to-pink-400 mx-auto rounded-full mb-6"></div>
-          <p className="text-gray-400 max-w-3xl mx-auto text-lg">
-            Here are some of my recent projects that showcase my skills in web development, machine learning, and AI. Each project represents a unique challenge and learning experience.
-          </p>
+          <p className="text-gray-500 text-sm font-bold uppercase tracking-widest">Selection of high-impact engineering modules</p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6 lg:gap-8">
+        {/* Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, index) => (
-            <div
+            <motion.div
               key={index}
-              className="group relative overflow-hidden rounded-xl transition-all duration-300 transform hover:scale-105"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.1 }}
+              className="group relative flex flex-col h-full"
             >
-              {/* Gradient border effect */}
-              <div className="absolute -inset-px bg-gradient-to-r from-purple-500/50 to-pink-500/50 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-sm"></div>
-              
-              <div className="relative bg-slate-800/60 backdrop-blur-sm rounded-xl border border-purple-500/30 group-hover:border-purple-400/60 overflow-hidden transition-all duration-300 shadow-xl group-hover:shadow-2xl h-full flex flex-col">
-                {/* Top accent bar */}
-                <div className={`h-1.5 bg-gradient-to-r ${project.gradient}`}></div>
-                
-                <div className="p-6 lg:p-7 flex flex-col flex-grow">
-                  {/* Header with emoji and title */}
-                  <div className="flex items-start justify-between mb-3">
-                    <div className="flex-grow">
-                      <div className="flex items-center gap-2 mb-2">
-                        <span className="text-3xl">{project.emoji}</span>
-                        <Sparkles className="w-4 h-4 text-purple-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                      </div>
-                      <h3 className="text-xl font-bold text-white group-hover:text-purple-300 transition-colors duration-300">
-                        {project.title}
-                      </h3>
-                    </div>
-                  </div>
-                  
-                  <p className="text-gray-300 mb-5 leading-relaxed text-sm lg:text-base flex-grow">
-                    {project.description}
-                  </p>
+              {/* Card Backdrop */}
+              <div className="absolute inset-0 bg-white/5 backdrop-blur-3xl rounded-[40px] border border-white/10 group-hover:border-primary/50 transition-colors duration-500" />
 
-                  {/* Highlights */}
-                  <div className="mb-5 bg-slate-900/40 rounded-lg p-3 border border-purple-500/20">
-                    <h4 className="text-xs font-semibold text-purple-400 mb-2 uppercase tracking-widest">Highlights</h4>
-                    <ul className="space-y-1.5">
-                      {project.highlights.slice(0, 2).map((highlight, idx) => (
-                        <li key={idx} className="text-xs text-gray-400 flex items-start gap-2">
-                          <span className="text-purple-400 mt-1 flex-shrink-0">✓</span>
-                          <span>{highlight}</span>
-                        </li>
-                      ))}
-                    </ul>
+              {/* Content */}
+              <div className="relative p-8 flex flex-col h-full">
+                <div className="flex justify-between items-start mb-8">
+                  <div className={`p-4 rounded-2xl bg-gradient-to-br ${project.gradient} border border-white/10 text-white shrink-0 group-hover:scale-110 transition-transform`}>
+                    <project.icon size={24} />
                   </div>
-
-                  {/* Technologies */}
-                  <div className="mb-6">
-                    <div className="flex flex-wrap gap-2">
-                      {project.technologies.map((tech, idx) => (
-                        <span
-                          key={idx}
-                          className="px-3 py-1 bg-gradient-to-r from-purple-600/30 to-pink-600/30 text-purple-300 text-xs font-medium rounded-full border border-purple-500/40 hover:border-purple-400/60 transition-all duration-300 group-hover:bg-purple-600/40"
-                        >
-                          {tech}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* Links */}
-                  <div className="flex gap-4 mt-auto">
-                    <a
-                      href={project.codeLink}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-2 px-4 py-2 bg-slate-700/60 hover:bg-slate-600/80 text-gray-300 hover:text-white rounded-lg transition-all duration-300 border border-slate-600/50 hover:border-purple-500/50 group/link"
-                    >
-                      <Github size={16} />
-                      <span className="text-sm font-medium">Code</span>
-                    </a>
-                    {project.liveLink && (
-                      <a
-                        href={project.liveLink}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-purple-600/60 to-pink-600/60 hover:from-purple-600/80 hover:to-pink-600/80 text-white rounded-lg transition-all duration-300 border border-purple-500/50 hover:border-purple-400/80 group/link"
-                      >
-                        <ExternalLink size={16} />
-                        <span className="text-sm font-medium">Live</span>
-                      </a>
-                    )}
+                  <div className="text-[10px] font-black uppercase tracking-widest text-primary px-3 py-1 rounded-full bg-primary/10 border border-primary/20">
+                    {project.status}
                   </div>
                 </div>
+
+                <h3 className="text-2xl font-black text-white mb-4 tracking-tight group-hover:text-primary transition-colors">
+                  {project.title}
+                </h3>
+
+                <p className="text-gray-400 text-sm leading-relaxed mb-8 flex-grow">
+                  {project.description}
+                </p>
+
+                {/* Tech Stack */}
+                <div className="flex flex-wrap gap-2 mb-10">
+                  {project.technologies.map((tech, i) => (
+                    <span key={i} className="text-[9px] font-bold uppercase tracking-widest px-2 py-1 bg-white/5 border border-white/5 rounded-md text-gray-500">
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+
+                {/* Actions */}
+                <div className="flex gap-4">
+                  <motion.a
+                    whileHover={{ y: -2 }}
+                    href={project.codeLink}
+                    target="_blank"
+                    className="flex-1 flex items-center justify-center gap-2 py-3 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 text-white text-[10px] font-black uppercase tracking-widest transition-all"
+                  >
+                    <Github size={14} />
+                    Source
+                  </motion.a>
+                  {project.liveLink && (
+                    <motion.a
+                      whileHover={{ y: -2 }}
+                      href={project.liveLink}
+                      target="_blank"
+                      className="flex-1 flex items-center justify-center gap-2 py-3 rounded-2xl bg-primary text-white text-[10px] font-black uppercase tracking-widest shadow-[0_10px_20px_rgba(139,92,246,0.3)] transition-all"
+                    >
+                      <ExternalLink size={14} />
+                      Live Hub
+                    </motion.a>
+                  )}
+                </div>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

@@ -1,23 +1,18 @@
-
 import { useState, useEffect } from "react";
-import { Github, Linkedin, ChevronDown, Sparkles, ArrowRight } from "lucide-react";
+import { Github, Linkedin, ChevronDown, Rocket, Cpu, Sparkles, BrainCircuit } from "lucide-react";
+import { motion } from "framer-motion";
 
 const Hero = () => {
   const [displayText, setDisplayText] = useState("");
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
-  const [isLoaded, setIsLoaded] = useState(false);
   
   const texts = [
-    "Frontend Developer",
-    "AI Enthusiast", 
-    "Full Stack Developer",
-    "Problem Solver"
+    "AI/ML Engineer",
+    "Neural Architect", 
+    "Data Scientist",
+    "Full Stack Developer"
   ];
-
-  useEffect(() => {
-    setIsLoaded(true);
-  }, []);
 
   useEffect(() => {
     const currentText = texts[currentIndex];
@@ -36,107 +31,141 @@ const Hero = () => {
           setCurrentIndex((prev) => (prev + 1) % texts.length);
         }
       }
-    }, isDeleting ? 50 : 150);
+    }, isDeleting ? 50 : 100);
 
     return () => clearTimeout(timeout);
-  }, [displayText, currentIndex, isDeleting, texts]);
+  }, [displayText, currentIndex, isDeleting]);
 
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20">
-      {/* Animated background gradients */}
-      <div className="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-slate-900 to-purple-900/20"></div>
-      <div className="absolute top-0 right-0 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl animate-pulse"></div>
-      <div className="absolute bottom-0 left-0 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
-      
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-          {/* Text Content */}
-          <div className={`text-center lg:text-left order-2 lg:order-1 transform transition-all duration-1000 ${isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 lg:mb-6 leading-tight">
-              <span className="text-white block">Hi, I'm </span>
-              <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent animate-gradient-x">
-                Yatindra Rai
+    <section id="home" className="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
+      {/* Background elements */}
+      <div className="absolute inset-0 z-0">
+        <div className="absolute top-[10%] left-[15%] w-72 h-72 bg-primary/20 rounded-full blur-[128px] animate-pulse" />
+        <div className="absolute bottom-[20%] right-[10%] w-96 h-96 bg-blue-500/10 rounded-full blur-[128px] animate-pulse delay-700" />
+      </div>
+
+      <div className="container mx-auto px-6 relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          
+          {/* Main Content */}
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-center lg:text-left"
+          >
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 backdrop-blur-md mb-6">
+              <Sparkles size={14} className="text-primary animate-pulse" />
+              <span className="text-[10px] font-black uppercase tracking-[0.2em] text-gray-400">System Ready: AI Core Active</span>
+            </div>
+
+            <h1 className="text-4xl sm:text-6xl lg:text-7xl font-black mb-6 leading-[1.1] tracking-tight text-white">
+              Innovating the <br />
+              <span className="bg-gradient-to-r from-primary via-blue-400 to-primary bg-clip-text text-transparent animate-gradient-x">
+                Digital Frontier
               </span>
             </h1>
-            
-            <div className="text-xl sm:text-2xl lg:text-3xl text-gray-300 mb-6 lg:mb-8 h-10 lg:h-12 flex items-center justify-center lg:justify-start">
-              <span className="inline-block">
-                <span className="text-transparent bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text font-semibold">{displayText}</span>
-                <span className="animate-pulse text-blue-400 ml-1">|</span>
-              </span>
-            </div>
 
-            <p className="text-base sm:text-lg text-gray-300 mb-6 lg:mb-8 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
-              Passionate about creating innovative web experiences and exploring the fascinating world of AI and Machine Learning. Let's build something extraordinary together.
-            </p>
-
-            <div className="flex flex-col sm:flex-row gap-4 sm:gap-5 justify-center lg:justify-start mb-8">
-              <a
-                href="#contact"
-                className="group bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 text-center inline-flex items-center justify-center gap-2"
-              >
-                Get In Touch
-                <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
-              </a>
-              <a
-                href="#projects"
-                className="bg-slate-800/60 hover:bg-slate-700/60 text-white px-8 py-4 rounded-lg font-semibold border-2 border-blue-500/40 hover:border-blue-400/60 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 text-center backdrop-blur-sm"
-              >
-                View My Work
-              </a>
-            </div>
-
-            <div className="flex justify-center lg:justify-start space-x-6">
-              <a
-                href="https://github.com/YatindraRai002"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group relative w-12 h-12 bg-slate-800/60 rounded-lg flex items-center justify-center hover:bg-slate-700/60 transition-all duration-300 border border-slate-600/50 hover:border-blue-500/50 transform hover:scale-110"
-              >
-                <Github size={24} className="text-gray-300 group-hover:text-white transition-colors" />
-                <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 bg-slate-900 px-2 py-1 rounded text-xs text-white opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
-                  GitHub
-                </div>
-              </a>
-              <a
-                href="https://www.linkedin.com/in/yatindra-rai-6a3181324/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group relative w-12 h-12 bg-slate-800/60 rounded-lg flex items-center justify-center hover:bg-slate-700/60 transition-all duration-300 border border-slate-600/50 hover:border-blue-500/50 transform hover:scale-110"
-              >
-                <Linkedin size={24} className="text-gray-300 group-hover:text-white transition-colors" />
-                <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 bg-slate-900 px-2 py-1 rounded text-xs text-white opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
-                  LinkedIn
-                </div>
-              </a>
-            </div>
-          </div>
-
-          {/* Profile Image */}
-          <div className={`flex justify-center lg:justify-end order-1 lg:order-2 transform transition-all duration-1000 ${isLoaded ? 'translate-y-0 opacity-100' : '-translate-y-10 opacity-0'}`}>
-            <div className="relative group">
-              {/* Animated glow effects */}
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-400/30 to-purple-400/30 rounded-full blur-2xl scale-125 group-hover:scale-135 transition-transform duration-300"></div>
-              <div className="absolute -inset-2 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-              
-              <div className="w-56 sm:w-64 md:w-80 lg:w-96 h-56 sm:h-64 md:h-80 lg:h-96 rounded-full overflow-hidden border-4 border-blue-500/40 group-hover:border-blue-400/70 transition-all duration-500 relative z-10 shadow-2xl group-hover:shadow-3xl">
-                <img
-                  src="/lovable-uploads/a4c5b697-fb03-4d6a-b15e-bd3e701ae34b.png"
-                  alt="Yatindra Rai"
-                  className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
-                />
+            <div className="flex items-center justify-center lg:justify-start gap-3 text-xl sm:text-2xl text-gray-400 font-medium mb-8">
+              <span className="opacity-50 tracking-widest text-sm uppercase">I am a</span>
+              <div className="relative inline-flex min-w-[200px]">
+                <span className="text-white font-bold tracking-tight">{displayText}</span>
+                <span className="w-1 h-8 bg-primary ml-1 animate-pulse" />
               </div>
             </div>
-          </div>
+
+            <p className="text-gray-400 text-lg mb-10 max-w-xl leading-relaxed mx-auto lg:mx-0">
+              Expertise in crafting sophisticated neural architectures and immersive digital experiences. Bridging the gap between 
+              <span className="text-white font-semibold"> data intelligence </span> and <span className="text-white font-semibold"> human-centric design</span>.
+            </p>
+
+            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4">
+              <motion.a
+                whileHover={{ scale: 1.05, boxShadow: "0 0 30px rgba(139,92,246,0.3)" }}
+                whileTap={{ scale: 0.95 }}
+                href="#projects"
+                className="px-8 py-4 bg-primary text-white font-black uppercase tracking-widest text-xs rounded-2xl flex items-center gap-3"
+              >
+                Explore Workspace
+                <Rocket size={16} />
+              </motion.a>
+              
+              <div className="flex items-center gap-3">
+                {[
+                  { icon: Github, link: "https://github.com/YatindraRai002" },
+                  { icon: Linkedin, link: "https://www.linkedin.com/in/yatindra-rai-6a3181324/" }
+                ].map((social, i) => (
+                  <motion.a
+                    key={i}
+                    whileHover={{ scale: 1.1, backgroundColor: "rgba(255,255,255,0.1)" }}
+                    href={social.link}
+                    target="_blank"
+                    className="w-12 h-12 flex items-center justify-center border border-white/10 rounded-2xl text-white/50 hover:text-white transition-colors backdrop-blur-md"
+                  >
+                    <social.icon size={20} />
+                  </motion.a>
+                ))}
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Visual Element */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1, delay: 0.2 }}
+            className="hidden lg:flex justify-center relative"
+          >
+            {/* Rotating Rings */}
+            <div className="absolute inset-0 flex items-center justify-center -z-10">
+              <div className="w-[450px] h-[450px] border border-white/5 rounded-full animate-rotate-slow" />
+              <div className="absolute w-[350px] h-[350px] border border-primary/20 rounded-full animate-rotate-slow [animation-direction:reverse]" />
+              <div className="absolute w-[250px] h-[250px] border border-white/5 rounded-full animate-rotate-slow" />
+            </div>
+
+            {/* Central Node */}
+            <div className="relative w-80 h-80">
+               <div className="absolute inset-0 bg-primary/20 rounded-full blur-3xl animate-pulse" />
+               <motion.div 
+                 animate={{ 
+                   y: [0, -20, 0],
+                   rotate: [0, 5, 0]
+                 }}
+                 transition={{ 
+                   duration: 6, 
+                   repeat: Infinity,
+                   ease: "easeInOut"
+                 }}
+                 className="relative w-full h-full p-4 rounded-[40px] bg-white/5 backdrop-blur-2xl border border-white/10 shadow-2xl flex items-center justify-center group"
+               >
+                 <img
+                   src="/lovable-uploads/a4c5b697-fb03-4d6a-b15e-bd3e701ae34b.png"
+                   alt="Profile"
+                   className="w-full h-full object-cover rounded-[32px] grayscale group-hover:grayscale-0 transition-all duration-700"
+                 />
+                 
+                 {/* Floating Badges */}
+                 <div className="absolute -top-6 -right-6 w-20 h-20 bg-background/80 backdrop-blur-xl border border-white/10 rounded-2xl flex items-center justify-center text-primary shadow-xl animate-float">
+                   <BrainCircuit size={32} />
+                 </div>
+                 <div className="absolute -bottom-6 -left-6 w-16 h-16 bg-background/80 backdrop-blur-xl border border-white/10 rounded-2xl flex items-center justify-center text-blue-400 shadow-xl animate-float delay-1000">
+                   <Cpu size={24} />
+                 </div>
+               </motion.div>
+            </div>
+          </motion.div>
         </div>
       </div>
 
-      {/* Animated Scroll Indicator */}
-      <div className="absolute bottom-6 sm:bottom-10 left-1/2 transform -translate-x-1/2 flex flex-col items-center">
-        <div className="text-gray-400 text-sm mb-2">Scroll to explore</div>
-        <div className="animate-bounce">
-          <ChevronDown className="text-gray-400 hover:text-gray-200 transition-colors" size={28} />
-        </div>
+      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2">
+        <span className="text-[10px] font-black uppercase tracking-[0.3em] text-gray-500">Initiate Scroll Sequence</span>
+        <motion.div 
+          animate={{ y: [0, 10, 0] }} 
+          transition={{ duration: 2, repeat: Infinity }}
+          className="w-6 h-10 border-2 border-white/10 rounded-full p-1 flex justify-center"
+        >
+          <div className="w-1 h-2 bg-primary rounded-full mt-1" />
+        </motion.div>
       </div>
     </section>
   );

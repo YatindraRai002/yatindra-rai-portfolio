@@ -1,125 +1,185 @@
-
-import { Zap, Code2, Package, Database } from "lucide-react";
-import { useState } from "react";
+import { Terminal, Brain, Server, Layers, Wrench, Shield, MessageSquare, Share2 } from "lucide-react";
+import { motion } from "framer-motion";
 
 const Skills = () => {
-  const [hoveredSkill, setHoveredSkill] = useState<string | null>(null);
-
   const skillCategories = [
     {
-      title: "Programming Languages",
-      skills: ["C++", "C", "JAVA", "PYTHON", "HTML", "CSS"],
-      color: "from-blue-500 to-purple-500",
-      icon: Code2
+      title: "Linguistic Core",
+      skills: ["C++", "Python"],
+      icon: Terminal,
+      color: "text-blue-400",
+      bg: "bg-blue-400/10"
     },
     {
-      title: "Libraries/Frameworks",
-      skills: ["JavaScript", "React", "Tailwind CSS", "Scikit-learn", "PyTorch", "Matplotlib", "Seaborn"],
-      color: "from-purple-500 to-indigo-500",
-      icon: Package
+      title: "Neural Architecture",
+      skills: [
+        "GenAI", 
+        "LLM Fine-Tuning (LoRA)", 
+        "RAG Pipelines", 
+        "Multi-Agent Systems", 
+        "LLM Evaluation", 
+        "EEG",
+        "Representation Learning",
+        "TensorFlow",
+        "Analysis skills"
+      ],
+      icon: Brain,
+      color: "text-primary",
+      bg: "bg-primary/10"
     },
     {
-      title: "Tools / Platforms",
-      skills: ["Git", "TensorFlow", "VS Code", "Jupyter Notebook"],
-      color: "from-indigo-500 to-blue-500",
-      icon: Zap
+      title: "Backend Nexus",
+      skills: ["FastAPI", "Python", "RESTful APIs", "PyTorch", "Uvicorn"],
+      icon: Server,
+      color: "text-emerald-400",
+      bg: "bg-emerald-400/10"
     },
     {
-      title: "Databases",
-      skills: ["MongoDB"],
-      color: "from-green-500 to-teal-500",
-      icon: Database
+      title: "Frontend Matrix",
+      skills: ["Next.js", "React.js", "TailwindCSS"],
+      icon: Layers,
+      color: "text-pink-400",
+      bg: "bg-pink-400/10"
+    },
+    {
+      title: "AI Ecosystem",
+      skills: ["Groq API", "Ollama", "Unsloth", "HuggingFace", "FAISS"],
+      icon: Wrench,
+      color: "text-purple-400",
+      bg: "bg-purple-400/10"
+    },
+    {
+      title: "CyberOps /Tools",
+      skills: ["Docker", "Git", "GitHub", "Render Deployment"],
+      icon: Shield,
+      color: "text-cyan-400",
+      bg: "bg-cyan-400/10"
+    },
+    {
+      title: "Neural Plugins",
+      skills: [
+        "Problem-Solving",
+        "Quick Learner",
+        "Team Collaborator",
+        "Clear Communication",
+        "Analytical Thinking"
+      ],
+      icon: MessageSquare,
+      color: "text-orange-400",
+      bg: "bg-orange-400/10"
     }
   ];
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { y: 20, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1
+    }
+  };
+
   return (
-    <section id="skills" className="py-20 lg:py-28 relative overflow-hidden">
-      {/* Background effects */}
-      <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-purple-900/50 to-slate-900"></div>
-      <div className="absolute top-0 left-0 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl animate-pulse"></div>
-      <div className="absolute bottom-0 right-0 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
-      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-gradient-to-r from-blue-500/5 to-purple-500/5 rounded-full blur-3xl"></div>
-      
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="text-center mb-16 lg:mb-20 animate-fade-in">
-          <h2 className="text-4xl lg:text-5xl font-bold mb-4">
-            <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent animate-gradient-x">
-              Skills & Technologies
-            </span>
-          </h2>
-          <div className="w-24 h-1.5 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 mx-auto rounded-full mb-6 animate-gradient-x"></div>
-          <p className="text-gray-300 max-w-3xl mx-auto text-lg">
-            A comprehensive overview of my technical expertise and the tools I use to bring innovative ideas to life.
-          </p>
-        </div>
-
-        {/* Skills Categories Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
-          {skillCategories.map((category, index) => {
-            const Icon = category.icon;
-            return (
-              <div
-                key={index}
-                className="group cursor-pointer relative animate-fade-in"
-                style={{ animationDelay: `${index * 100}ms` }}
+    <section id="skills" className="py-32 relative overflow-hidden">
+      <div className="container mx-auto px-6 relative z-10">
+        
+        {/* Section Header */}
+        <div className="flex justify-between items-end mb-24 border-b border-white/5 pb-12">
+           <div className="max-w-2xl">
+              <motion.div 
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                className="flex items-center gap-2 mb-4"
               >
-                {/* Animated gradient border */}
-                <div className={`absolute -inset-0.5 bg-gradient-to-r ${category.color} opacity-0 group-hover:opacity-100 blur-sm rounded-xl transition-all duration-500 animate-gradient-x`}></div>
-                
-                <div className="relative bg-slate-800/60 backdrop-blur-sm rounded-xl border border-blue-500/30 group-hover:border-blue-400/60 p-6 lg:p-8 transform transition-all duration-500 group-hover:scale-105 group-hover:shadow-2xl group-hover:-translate-y-2">
-                  <h3 className="text-lg sm:text-xl font-bold text-white mb-6 flex items-center gap-3">
-                    <div className={`p-2.5 bg-gradient-to-r ${category.color} rounded-lg transform transition-all duration-500 group-hover:rotate-12 group-hover:scale-110`}>
-                      <Icon className="text-white" size={20} />
-                    </div>
-                    {category.title}
-                  </h3>
-                  
-                  <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
-                    {category.skills.map((skill, idx) => (
-                      <div
-                        key={idx}
-                        onMouseEnter={() => setHoveredSkill(skill)}
-                        onMouseLeave={() => setHoveredSkill(null)}
-                        className="group/skill relative overflow-hidden bg-gradient-to-br from-slate-700/50 to-slate-800/50 rounded-lg p-3 sm:p-4 text-center transition-all duration-500 hover:from-slate-600/60 hover:to-slate-700/60 cursor-pointer border border-slate-600/50 hover:border-blue-500/50 hover:scale-110 transform hover:rotate-2 hover:shadow-lg"
-                      >
-                        <div className={`absolute inset-0 bg-gradient-to-r ${category.color} opacity-0 group-hover/skill:opacity-15 transition-opacity duration-500`}></div>
-                        <div className={`absolute inset-0 bg-gradient-to-r ${category.color} opacity-0 ${hoveredSkill === skill ? 'opacity-10' : ''} transition-opacity duration-500 blur-xl`}></div>
-                        <span className="text-gray-200 group-hover/skill:text-white transition-all duration-500 text-xs sm:text-sm font-semibold relative z-10 group-hover/skill:scale-110 inline-block">
-                          {skill}
-                        </span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            );
-          })}
+                <div className="w-8 h-px bg-primary" />
+                <span className="text-[10px] font-black uppercase tracking-[0.4em] text-primary">Technical Schematics</span>
+              </motion.div>
+              <h2 className="text-4xl lg:text-7xl font-black text-white tracking-tighter">
+                Skill <span className="text-gray-600">Inventory</span>
+              </h2>
+           </div>
+           <div className="hidden lg:block text-right">
+              <p className="text-[10px] font-bold text-gray-500 uppercase tracking-widest leading-loose">
+                System Latency: 0.02ms <br />
+                Process Capacity: 99.9% <br />
+                Build Version: 2.0.26
+              </p>
+           </div>
         </div>
 
-        {/* Skills Stats */}
-        <div className="mt-16 lg:mt-20 grid grid-cols-2 md:grid-cols-4 gap-4 lg:gap-6">
-          {[
-            { number: "25+", label: "Technologies", icon: "💻" },
-            { number: "5+", label: "Major Projects", icon: "🚀" },
-            { number: "4", label: "Categories", icon: "📊" },
-            { number: "∞", label: "Learning", icon: "📚" }
-          ].map((stat, index) => (
-            <div
+        {/* Categories Grid */}
+        <motion.div 
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
+        >
+          {skillCategories.map((category, index) => (
+            <motion.div
               key={index}
-              className="group relative bg-gradient-to-br from-slate-800/60 to-slate-900/40 backdrop-blur-sm rounded-lg p-4 lg:p-6 border border-blue-500/30 group-hover:border-purple-400/60 text-center transition-all duration-500 hover:scale-110 hover:shadow-2xl hover:-translate-y-2 animate-fade-in cursor-pointer overflow-hidden"
-              style={{ animationDelay: `${index * 100}ms` }}
+              variants={itemVariants}
+              className="p-8 rounded-[40px] bg-white/5 border border-white/10 backdrop-blur-3xl group hover:border-primary/50 transition-all duration-500 overflow-hidden relative"
             >
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-600/10 to-purple-600/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-              <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 to-purple-600 opacity-0 group-hover:opacity-20 blur-xl transition-opacity duration-500"></div>
-              
-              <div className="text-3xl mb-2 transform group-hover:scale-125 transition-transform duration-500">{stat.icon}</div>
-              <div className="text-2xl lg:text-3xl font-bold text-transparent bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text mb-2 group-hover:scale-110 transition-transform duration-500">
-                {stat.number}
-              </div>
-              <p className="text-gray-300 text-sm lg:text-base font-medium group-hover:text-white transition-colors duration-500">{stat.label}</p>
-            </div>
+               {/* Decorative Element */}
+               <div className="absolute top-0 right-0 p-6 text-white/5 group-hover:text-primary/10 transition-colors">
+                  <category.icon size={120} />
+               </div>
+
+               <div className={`w-12 h-12 rounded-2xl ${category.bg} ${category.color} flex items-center justify-center mb-8 border border-white/5`}>
+                  <category.icon size={24} />
+               </div>
+
+               <h3 className="text-xl font-black text-white mb-6 uppercase tracking-tight">
+                  {category.title}
+               </h3>
+
+               <div className="flex flex-col gap-3">
+                  {category.skills.map((skill, i) => (
+                    <div key={i} className="flex items-center gap-3 group/skill">
+                       <div className="w-1.5 h-1.5 rounded-full bg-white/10 group-hover/skill:bg-primary transition-colors" />
+                       <span className="text-gray-400 text-xs font-bold uppercase tracking-widest group-hover/skill:text-white transition-colors">
+                          {skill}
+                       </span>
+                    </div>
+                  ))}
+               </div>
+
+               {/* Interaction Indicator */}
+               <div className="mt-12 flex justify-end">
+                  <div className="w-8 h-8 rounded-full border border-white/10 flex items-center justify-center text-white/20 group-hover:text-primary group-hover:border-primary/50 transition-all">
+                     <Share2 size={12} />
+                  </div>
+               </div>
+            </motion.div>
           ))}
+        </motion.div>
+
+        {/* Analytical Display Overlay */}
+        <div className="mt-24 p-8 rounded-[32px] bg-gradient-to-r from-primary/10 to-transparent border border-white/5 flex flex-wrap gap-12 items-center justify-center lg:justify-between">
+            {[
+              { label: "Algorithms", val: "Elite" },
+              { label: "Architecture", val: "Scalable" },
+              { label: "AI Integration", val: "Native" },
+              { label: "Cloud Logic", val: "Active" }
+            ].map((stat, i) => (
+              <div key={i} className="flex flex-col gap-1 text-center">
+                 <span className="text-[10px] font-black text-gray-500 uppercase tracking-widest">{stat.label}</span>
+                 <span className="text-xl font-black text-white tracking-widest uppercase">{stat.val}</span>
+              </div>
+            ))}
         </div>
+
       </div>
     </section>
   );
