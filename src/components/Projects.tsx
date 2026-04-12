@@ -5,7 +5,7 @@ const Projects = () => {
   const projects = [
     {
       title: "SynapseVideo",
-      description: "Multi-modal video understanding platform. RAG-based search across transcripts and visual frames using Whisper ASR and CLIP embeddings.",
+      description: "Multi modal video understanding platform. RAG based search across transcripts and visual frames using Whisper ASR and CLIP embeddings.",
       technologies: ["FastAPI", "Whisper", "CLIP", "Qdrant", "Next.js"],
       status: "Operational",
       gradient: "from-indigo-500/20 to-purple-500/20",
@@ -15,7 +15,7 @@ const Projects = () => {
     },
     {
       title: "VeraciRAG",
-      description: "Truth-verified multi-agent RAG system with Guardian-Generator-Evaluator loops. Fully local, zero-API-cost pipeline achieving 85% accuracy.",
+      description: "Truth verified multi-agent RAG system with Guardian -->Generator --> Evaluator loops. Fully local, zero API cost pipeline achieving 89% accuracy.",
       technologies: ["Ollama", "ChromaDB", "BERT", "FAISS", "Python"],
       status: "Verified",
       gradient: "from-cyan-500/20 to-indigo-500/20",
@@ -25,7 +25,7 @@ const Projects = () => {
     },
     {
       title: "NicheForge",
-      description: "Automated end-to-end LLM fine-tuning ecosystem. Streamlining synthetic dataset generation, LoRA training via Unsloth, and multi-backend inference.",
+      description: "Automated end to end LLM fine tuning ecosystem. Streamlining synthetic dataset generation, LoRA training via Unsloth, and multi-backend inference.",
       technologies: ["Unsloth", "Llama 3", "Groq", "FastAPI", "React"],
       status: "Stable",
       gradient: "from-amber-500/20 to-orange-500/20",
@@ -45,7 +45,7 @@ const Projects = () => {
     },
     {
       title: "RecallVision",
-      description: "Voice-first AI assistant integrating Whisper-based ASR with a RAG pipeline. Modular microservices architecture for real-time multilingual querying and intelligent generation.",
+      description: "Voice first AI assistant integrating Whisper based ASR with a RAG pipeline. Modular microservices architecture for real time multilingual querying and intelligent generation.",
       technologies: ["FastAPI", "Whisper", "FAISS", "Llama 3.1", "Streamlit"],
       status: "Deployed",
       gradient: "from-indigo-500/20 to-blue-500/20",
@@ -55,7 +55,7 @@ const Projects = () => {
     },
     {
       title: "FlowForge-AI",
-      description: "Enterprise-grade multi-agent AI system for autonomous marketing campaigns. Orchestrating specialized agents with real-time SSE streaming and Groq-powered inference.",
+      description: "Enterprise grade multi agent AI system for autonomous marketing campaigns. Orchestrating specialized agents with real time SSE streaming and Groq powered inference.",
       technologies: ["FastAPI", "Groq", "Multi-Agent", "SSE", "React 19"],
       status: "Stable",
       gradient: "from-purple-500/20 to-indigo-500/20",
