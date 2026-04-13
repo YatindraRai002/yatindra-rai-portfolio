@@ -63,8 +63,8 @@ const Contact = () => {
               <Fingerprint size={16} className="text-primary animate-pulse" />
               <span className="text-[10px] font-black uppercase tracking-[0.4em] text-primary">Biometric Protocol</span>
            </motion.div>
-           <h2 className="text-4xl lg:text-7xl font-black text-white text-center mb-6 tracking-tighter italic">
-              Initiate <span className="bg-gradient-to-r from-primary via-blue-400 to-primary bg-clip-text text-transparent">Contact</span>
+           <h2 className="text-3xl sm:text-4xl lg:text-7xl font-black text-white text-center mb-6 tracking-tight italic">
+              Initiate <span className="text-shimmer bg-gradient-to-r from-primary via-blue-400 to-primary bg-clip-text text-transparent px-4 py-2 inline-block">Contact</span>
            </h2>
            <div className="w-12 h-1 bg-white/10 rounded-full" />
         </div>
@@ -72,18 +72,22 @@ const Contact = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
            
            {/* Info Panel */}
-           <div className="lg:col-span-5 space-y-8">
+           <div className="lg:col-span-5">
               <motion.div 
-                initial={{ opacity: 0, x: -20 }}
+                initial={{ opacity: 0, x: -30 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
-                className="p-8 rounded-[40px] bg-white/5 border border-white/10 backdrop-blur-3xl"
+                transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                className="p-6 sm:p-8 rounded-3xl lg:rounded-[40px] bg-white/5 border border-white/10 backdrop-blur-3xl group hover:border-primary/30 transition-all duration-500"
               >
                   <div className="flex items-center gap-4 mb-8">
-                     <div className="w-12 h-12 rounded-2xl bg-primary/20 flex items-center justify-center text-primary">
+                     <motion.div 
+                        whileHover={{ rotate: 360, scale: 1.1 }}
+                        className="w-12 h-12 rounded-2xl bg-primary/20 flex items-center justify-center text-primary shadow-lg shadow-primary/10"
+                     >
                         <Shield size={24} />
-                     </div>
-                     <h3 className="text-xl font-black text-white uppercase tracking-tight">Access Points</h3>
+                     </motion.div>
+                     <h3 className="text-xl font-black text-white uppercase tracking-tight group-hover:text-primary transition-colors">Access Points</h3>
                   </div>
 
                   <div className="space-y-6">
@@ -92,15 +96,22 @@ const Contact = () => {
                         { icon: MapPin, label: "Core Location", val: "Varanasi, India" },
                         { icon: Phone, label: "Comms Line", val: "+91 8726441500" }
                      ].map((item, i) => (
-                        <div key={i} className="group cursor-pointer">
+                        <motion.div 
+                          key={i} 
+                          initial={{ opacity: 0, x: -10 }}
+                          whileInView={{ opacity: 1, x: 0 }}
+                          viewport={{ once: true }}
+                          transition={{ delay: 0.2 + (i * 0.1) }}
+                          className="group/item cursor-pointer"
+                        >
                            <div className="flex items-center gap-4">
-                              <item.icon size={18} className="text-gray-600 group-hover:text-primary transition-colors" />
+                              <item.icon size={18} className="text-gray-600 group-hover/item:text-primary transition-colors" />
                               <div className="flex flex-col">
                                  <span className="text-[10px] font-black text-gray-500 uppercase tracking-widest">{item.label}</span>
-                                 <span className="text-white font-medium text-sm group-hover:text-primary transition-colors">{item.val}</span>
+                                 <span className="text-white font-medium text-sm group-hover/item:text-primary transition-colors">{item.val}</span>
                               </div>
                            </div>
-                        </div>
+                        </motion.div>
                      ))}
                   </div>
 
@@ -112,10 +123,11 @@ const Contact = () => {
                         ].map((social, i) => (
                            <motion.a
                               key={i}
-                              whileHover={{ scale: 1.1, backgroundColor: "rgba(255,255,255,0.05)" }}
+                              whileHover={{ y: -5, scale: 1.1, backgroundColor: "rgba(139, 92, 246, 0.1)", borderColor: "rgba(139, 92, 246, 0.4)" }}
+                              whileTap={{ scale: 0.95 }}
                               href={social.link}
                               target="_blank"
-                              className="w-12 h-12 rounded-2xl border border-white/10 flex items-center justify-center text-gray-400 hover:text-white transition-all backdrop-blur-md"
+                              className="w-12 h-12 rounded-2xl border border-white/10 flex items-center justify-center text-gray-400 hover:text-white transition-all backdrop-blur-md shadow-lg"
                            >
                               <social.icon size={20} />
                            </motion.a>
@@ -128,12 +140,13 @@ const Contact = () => {
            {/* Form Panel */}
            <div className="lg:col-span-7">
               <motion.div 
-                initial={{ opacity: 0, x: 20 }}
+                initial={{ opacity: 0, x: 30 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
-                className="p-10 rounded-[40px] bg-white/5 border border-white/10 backdrop-blur-3xl relative overflow-hidden"
+                transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                className="p-6 sm:p-10 rounded-3xl lg:rounded-[40px] bg-white/5 border border-white/10 backdrop-blur-3xl relative overflow-hidden group hover:border-primary/30 transition-all duration-500"
               >
-                 <div className="absolute top-0 right-0 p-8 opacity-5">
+                 <div className="absolute top-0 right-0 p-8 opacity-5 group-hover:opacity-10 transition-opacity">
                     <Send size={120} />
                  </div>
 
@@ -146,7 +159,7 @@ const Contact = () => {
                              value={formData.name}
                              onChange={handleInputChange}
                              placeholder="IDENTIFIER"
-                             className="h-14 bg-white/5 border-white/10 rounded-2xl text-white placeholder-white/10 focus:border-primary/50 transition-colors"
+                             className="h-14 bg-white/5 border-white/10 rounded-2xl text-white placeholder-white/20 focus:border-primary/50 focus:ring-1 focus:ring-primary/50 transition-all"
                           />
                        </div>
                        <div className="space-y-3">
@@ -157,7 +170,7 @@ const Contact = () => {
                              value={formData.email}
                              onChange={handleInputChange}
                              placeholder="EMAIL@DOMAIN"
-                             className="h-14 bg-white/5 border-white/10 rounded-2xl text-white placeholder-white/10 focus:border-primary/50 transition-colors"
+                             className="h-14 bg-white/5 border-white/10 rounded-2xl text-white placeholder-white/20 focus:border-primary/50 focus:ring-1 focus:ring-primary/50 transition-all"
                           />
                        </div>
                     </div>
@@ -169,7 +182,7 @@ const Contact = () => {
                           value={formData.subject}
                           onChange={handleInputChange}
                           placeholder="SUBJECT LINE"
-                          className="h-14 bg-white/5 border-white/10 rounded-2xl text-white placeholder-white/10 focus:border-primary/50 transition-colors"
+                          className="h-14 bg-white/5 border-white/10 rounded-2xl text-white placeholder-white/20 focus:border-primary/50 focus:ring-1 focus:ring-primary/50 transition-all"
                        />
                     </div>
 
@@ -180,26 +193,27 @@ const Contact = () => {
                           value={formData.message}
                           onChange={handleInputChange}
                           placeholder="WRITE YOUR MESSAGE HERE..."
-                          className="min-h-[160px] bg-white/5 border-white/10 rounded-[32px] text-white placeholder-white/10 focus:border-primary/50 transition-colors resize-none p-6"
+                          className="min-h-[160px] bg-white/5 border-white/10 rounded-[32px] text-white placeholder-white/20 focus:border-primary/50 focus:ring-1 focus:ring-primary/50 transition-all resize-none p-6"
                        />
                     </div>
 
-                    <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+                    <motion.div whileHover={{ scale: 1.01 }} whileTap={{ scale: 0.99 }}>
                        <Button
                           type="submit"
                           disabled={isSubmitting || isSuccess}
-                          className="w-full h-16 bg-primary hover:bg-primary/90 text-white font-black uppercase tracking-[0.3em] text-[10px] rounded-2xl shadow-[0_20px_40px_rgba(139,92,246,0.3)] disabled:opacity-50"
+                          className="w-full h-16 bg-primary hover:bg-primary/90 text-white font-black uppercase tracking-[0.3em] text-[10px] rounded-2xl shadow-[0_20px_40px_rgba(139,92,246,0.3)] disabled:opacity-50 transition-all overflow-hidden group/btn relative"
                        >
                           <AnimatePresence mode="wait">
                              {isSuccess ? (
-                                <motion.div key="s" initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="flex items-center gap-2">
+                                <motion.div key="s" initial={{ y: 20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} className="flex items-center gap-2">
                                    <CheckCircle size={18} /> Signal Transmitted
                                 </motion.div>
                              ) : isSubmitting ? (
                                 <motion.div key="l" initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
                              ) : (
-                                <motion.div key="d" initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="flex items-center gap-2">
-                                   <Send size={18} /> Initiate Uplink
+                                <motion.div key="d" initial={{ y: 0 }} animate={{ y: 0 }} className="flex items-center gap-2">
+                                   <Send size={18} className="group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1 transition-transform" /> 
+                                   Initiate Uplink
                                 </motion.div>
                              )}
                           </AnimatePresence>

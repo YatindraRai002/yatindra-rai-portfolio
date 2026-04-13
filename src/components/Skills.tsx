@@ -95,7 +95,7 @@ const Skills = () => {
       <div className="container mx-auto px-6 relative z-10">
         
         {/* Section Header */}
-        <div className="flex justify-between items-end mb-24 border-b border-white/5 pb-12">
+        <div className="flex flex-col lg:flex-row justify-between lg:items-end mb-20 border-b border-white/5 pb-12 gap-8">
            <div className="max-w-2xl">
               <motion.div 
                 initial={{ opacity: 0, x: -20 }}
@@ -106,7 +106,7 @@ const Skills = () => {
                 <div className="w-8 h-px bg-primary" />
                 <span className="text-[10px] font-black uppercase tracking-[0.4em] text-primary">Technical Schematics</span>
               </motion.div>
-              <h2 className="text-4xl lg:text-7xl font-black text-white tracking-tighter">
+              <h2 className="text-3xl sm:text-4xl lg:text-7xl font-black text-white tracking-tight">
                 Skill <span className="text-gray-600">Inventory</span>
               </h2>
            </div>
@@ -131,37 +131,58 @@ const Skills = () => {
             <motion.div
               key={index}
               variants={itemVariants}
-              className="p-8 rounded-[40px] bg-white/5 border border-white/10 backdrop-blur-3xl group hover:border-primary/50 transition-all duration-500 overflow-hidden relative"
+              whileHover={{ 
+                scale: 1.02, 
+                rotateY: index % 2 === 0 ? 5 : -5,
+                rotateX: 3,
+                y: -10,
+                transition: { duration: 0.2 }
+              }}
+              className="p-6 sm:p-8 rounded-3xl lg:rounded-[40px] bg-white/5 border border-white/10 backdrop-blur-3xl group hover:border-primary/50 transition-all duration-500 overflow-hidden relative perspective-1000"
             >
                {/* Decorative Element */}
-               <div className="absolute top-0 right-0 p-6 text-white/5 group-hover:text-primary/10 transition-colors">
+               <div className="absolute top-0 right-0 p-6 text-white/5 group-hover:text-primary/10 transition-colors pointer-events-none">
                   <category.icon size={120} />
                </div>
 
-               <div className={`w-12 h-12 rounded-2xl ${category.bg} ${category.color} flex items-center justify-center mb-8 border border-white/5`}>
+               <motion.div 
+                 whileHover={{ rotate: 360, scale: 1.1 }}
+                 transition={{ type: "spring", stiffness: 260, damping: 20 }}
+                 className={`w-12 h-12 rounded-2xl ${category.bg} ${category.color} flex items-center justify-center mb-8 border border-white/5 shadow-lg group-hover:shadow-primary/20`}
+               >
                   <category.icon size={24} />
-               </div>
+               </motion.div>
 
-               <h3 className="text-xl font-black text-white mb-6 uppercase tracking-tight">
+               <h3 className="text-xl font-black text-white mb-6 uppercase tracking-tight group-hover:text-primary transition-colors">
                   {category.title}
                </h3>
 
                <div className="flex flex-col gap-3">
                   {category.skills.map((skill, i) => (
-                    <div key={i} className="flex items-center gap-3 group/skill">
+                    <motion.div 
+                      key={i} 
+                      initial={{ opacity: 0, x: -10 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: (index * 0.1) + (i * 0.05) }}
+                      className="flex items-center gap-3 group/skill cursor-default"
+                    >
                        <div className="w-1.5 h-1.5 rounded-full bg-white/10 group-hover/skill:bg-primary transition-colors" />
                        <span className="text-gray-400 text-xs font-bold uppercase tracking-widest group-hover/skill:text-white transition-colors">
                           {skill}
                        </span>
-                    </div>
+                    </motion.div>
                   ))}
                </div>
 
                {/* Interaction Indicator */}
                <div className="mt-12 flex justify-end">
-                  <div className="w-8 h-8 rounded-full border border-white/10 flex items-center justify-center text-white/20 group-hover:text-primary group-hover:border-primary/50 transition-all">
+                  <motion.div 
+                    whileHover={{ scale: 1.2, rotate: 15 }}
+                    className="w-8 h-8 rounded-full border border-white/10 flex items-center justify-center text-white/20 group-hover:text-primary group-hover:border-primary/50 transition-all"
+                  >
                      <Share2 size={12} />
-                  </div>
+                  </motion.div>
                </div>
             </motion.div>
           ))}

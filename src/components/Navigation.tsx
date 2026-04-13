@@ -124,32 +124,39 @@ const Navigation = () => {
         <AnimatePresence>
           {isMobileMenuOpen && (
             <motion.div
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: "auto" }}
-              exit={{ opacity: 0, height: 0 }}
-              className="md:hidden bg-background/95 backdrop-blur-2xl border-b border-white/5 overflow-hidden"
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              className="md:hidden fixed inset-x-0 top-[72px] bg-background/80 backdrop-blur-3xl border-b border-white/5 shadow-2xl z-50 overflow-hidden rounded-b-[40px]"
             >
-              <div className="flex flex-col gap-4 p-6">
-                {navItems.map((item) => (
-                  <a
+              <div className="flex flex-col gap-2 p-8 pt-4">
+                {navItems.map((item, i) => (
+                  <motion.a
                     key={item.name}
                     href={item.href}
-                    className="text-gray-400 hover:text-white text-sm font-bold uppercase tracking-widest py-2 border-b border-white/5"
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: i * 0.05 }}
+                    className="text-gray-400 hover:text-white text-lg font-black uppercase tracking-[0.2em] py-4 border-b border-white/5 flex justify-between items-center group"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
-                    {item.name}
-                  </a>
+                    <span>{item.name}</span>
+                    <div className="w-2 h-2 rounded-full bg-primary opacity-0 group-hover:opacity-100 transition-opacity" />
+                  </motion.a>
                 ))}
-                <button
+                <motion.button
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.3 }}
                   onClick={() => {
                     setIsMobileMenuOpen(false);
                     setShowPasswordModal(true);
                   }}
-                  className="flex items-center justify-center gap-2 bg-primary text-white py-4 rounded-xl text-xs font-black uppercase tracking-widest mt-2"
+                  className="flex items-center justify-center gap-3 bg-primary text-white py-6 rounded-2xl text-[10px] font-black uppercase tracking-[0.4em] mt-6 shadow-[0_20px_40px_rgba(139,92,246,0.3)]"
                 >
-                  <Download size={16} />
-                  <span>Download Resume</span>
-                </button>
+                  <Download size={18} />
+                  <span>Access Core CV</span>
+                </motion.button>
               </div>
             </motion.div>
           )}

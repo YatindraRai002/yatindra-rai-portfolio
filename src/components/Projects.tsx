@@ -81,7 +81,7 @@ const Projects = () => {
             <span className="text-[10px] font-black uppercase tracking-[0.3em] text-gray-400">Project Archives // Active</span>
           </motion.div>
 
-          <h2 className="text-4xl lg:text-6xl font-black text-white text-center mb-6 tracking-tight">
+          <h2 className="text-3xl sm:text-4xl lg:text-6xl font-black text-white text-center mb-6 tracking-tight">
             Advanced <span className="bg-gradient-to-r from-primary to-blue-400 bg-clip-text text-transparent">Deployment Units</span>
           </h2>
           <p className="text-gray-500 text-sm font-bold uppercase tracking-widest">Selection of high-impact engineering modules</p>
@@ -92,21 +92,43 @@ const Projects = () => {
           {projects.map((project, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
-              className="group relative flex flex-col h-full"
+              initial={{ opacity: 0, scale: 0.9, y: 50 }}
+              whileInView={{ opacity: 1, scale: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ 
+                type: "spring",
+                stiffness: 70,
+                damping: 15,
+                mass: 1,
+                delay: index * 0.1
+              }}
+              whileHover={{ 
+                scale: 1.02, 
+                rotateY: index % 2 === 0 ? 5 : -5,
+                rotateX: 5,
+                transition: { duration: 0.2 }
+              }}
+              className="group relative flex flex-col h-full perspective-1000"
             >
               {/* Card Backdrop */}
-              <div className="absolute inset-0 bg-white/5 backdrop-blur-3xl rounded-[40px] border border-white/10 group-hover:border-primary/50 transition-colors duration-500" />
+              <div className="absolute inset-0 bg-white/5 backdrop-blur-3xl rounded-[40px] border border-white/10 group-hover:border-primary/50 group-hover:bg-white/10 transition-all duration-500" />
+              
+              {/* Animated Border Glow */}
+              <div className="absolute inset-0 rounded-[40px] opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
+                <div className="absolute inset-x-10 -top-px h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent" />
+                <div className="absolute inset-x-10 -bottom-px h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent" />
+              </div>
 
               {/* Content */}
-              <div className="relative p-8 flex flex-col h-full">
+              <div className="relative p-6 sm:p-8 flex flex-col h-full">
                 <div className="flex justify-between items-start mb-8">
-                  <div className={`p-4 rounded-2xl bg-gradient-to-br ${project.gradient} border border-white/10 text-white shrink-0 group-hover:scale-110 transition-transform`}>
+                  <motion.div 
+                    whileHover={{ rotate: 360 }}
+                    transition={{ duration: 0.8 }}
+                    className={`p-4 rounded-2xl bg-gradient-to-br ${project.gradient} border border-white/10 text-white shrink-0 shadow-lg`}
+                  >
                     <project.icon size={24} />
-                  </div>
+                  </motion.div>
                   <div className="text-[10px] font-black uppercase tracking-widest text-primary px-3 py-1 rounded-full bg-primary/10 border border-primary/20">
                     {project.status}
                   </div>
@@ -123,7 +145,7 @@ const Projects = () => {
                 {/* Tech Stack */}
                 <div className="flex flex-wrap gap-2 mb-10">
                   {project.technologies.map((tech, i) => (
-                    <span key={i} className="text-[9px] font-bold uppercase tracking-widest px-2 py-1 bg-white/5 border border-white/5 rounded-md text-gray-500">
+                    <span key={i} className="text-[9px] font-bold uppercase tracking-widest px-2 py-1 bg-white/5 border border-white/5 rounded-md text-gray-500 group-hover:text-gray-300 group-hover:border-white/10 transition-colors">
                       {tech}
                     </span>
                   ))}
@@ -132,17 +154,19 @@ const Projects = () => {
                 {/* Actions */}
                 <div className="flex gap-4">
                   <motion.a
-                    whileHover={{ y: -2 }}
+                    whileHover={{ y: -2, backgroundColor: "rgba(255,255,255,0.1)" }}
+                    whileTap={{ scale: 0.98 }}
                     href={project.codeLink}
                     target="_blank"
-                    className="flex-1 flex items-center justify-center gap-2 py-3 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 text-white text-[10px] font-black uppercase tracking-widest transition-all"
+                    className="flex-1 flex items-center justify-center gap-2 py-3 rounded-2xl bg-white/5 border border-white/10 text-white text-[10px] font-black uppercase tracking-widest transition-all"
                   >
                     <Github size={14} />
                     Source
                   </motion.a>
                   {project.liveLink && (
                     <motion.a
-                      whileHover={{ y: -2 }}
+                      whileHover={{ y: -2, scale: 1.02 }}
+                      whileTap={{ scale: 0.98 }}
                       href={project.liveLink}
                       target="_blank"
                       className="flex-1 flex items-center justify-center gap-2 py-3 rounded-2xl bg-primary text-white text-[10px] font-black uppercase tracking-widest shadow-[0_10px_20px_rgba(139,92,246,0.3)] transition-all"

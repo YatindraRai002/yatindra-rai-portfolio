@@ -41,27 +41,37 @@ const Index = () => {
       <Navigation />
 
       <main className="relative z-10">
-        <Hero />
-        
-        <div className="space-y-0">
-          <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ duration: 1 }}>
-            <About />
-          </motion.div>
-          <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ duration: 1 }}>
-            <Projects />
-          </motion.div>
-          <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ duration: 1 }}>
-            <Skills />
-          </motion.div>
-          <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ duration: 1 }}>
-            <Contact />
-          </motion.div>
-        </div>
+        <motion.div
+          initial={{ opacity: 0, scale: 0.98 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ 
+            duration: 1.2, 
+            ease: [0.16, 1, 0.3, 1],
+            delay: 0.2
+          }}
+        >
+          <Hero />
+          
+          <div className="space-y-0">
+            <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ duration: 1 }}>
+              <About />
+            </motion.div>
+            <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ duration: 1 }}>
+              <Projects />
+            </motion.div>
+            <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ duration: 1 }}>
+              <Skills />
+            </motion.div>
+            <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ duration: 1 }}>
+              <Contact />
+            </motion.div>
+          </div>
+        </motion.div>
       </main>
 
       {/* Futuristic Footer */}
-      <footer className="relative z-10 py-20 border-t border-white/5 bg-background/50 backdrop-blur-3xl">
-        <div className="container mx-auto px-6 flex flex-col items-center gap-8">
+      <footer className="relative z-10 py-12 sm:py-20 border-t border-white/5 bg-background/50 backdrop-blur-3xl">
+        <div className="container mx-auto px-6 flex flex-col items-center gap-6 sm:gap-8">
           <div className="flex items-center gap-2">
             <div className="w-8 h-8 rounded-lg bg-primary/20 border border-primary/20 flex items-center justify-center text-primary font-black text-xs">
               YR
@@ -69,13 +79,14 @@ const Index = () => {
             <span className="text-[10px] font-black uppercase tracking-[0.4em] text-gray-500">Neural Portfolio // 2026</span>
           </div>
           
-          <p className="text-[10px] font-medium text-gray-600 uppercase tracking-widest text-center max-w-sm leading-loose">
-            Designed for the future of decentralized intelligence. Built with React, Framer Motion, and Cosmic Energy.
+          <p className="text-[9px] sm:text-[10px] font-bold text-gray-500 uppercase tracking-[0.2em] text-center max-w-md leading-relaxed px-4 sm:px-0">
+            Architecting the neural fabric of the next generation. <br />
+            Engineered with precision, powered by imagination.
           </p>
           
-          <div className="flex gap-6">
-            <a href="#" className="text-gray-600 hover:text-white transition-colors text-xs font-bold uppercase tracking-widest">Privacy Protocol</a>
-            <a href="#" className="text-gray-600 hover:text-white transition-colors text-xs font-bold uppercase tracking-widest">System Status</a>
+          <div className="flex flex-wrap justify-center gap-4 sm:gap-6">
+            <a href="#" className="text-gray-600 hover:text-white transition-colors text-[10px] sm:text-xs font-bold uppercase tracking-widest">Privacy Protocol</a>
+            <a href="#" className="text-gray-600 hover:text-white transition-colors text-[10px] sm:text-xs font-bold uppercase tracking-widest">System Status</a>
           </div>
         </div>
       </footer>

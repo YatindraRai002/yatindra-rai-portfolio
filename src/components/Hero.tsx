@@ -9,9 +9,9 @@ const Hero = () => {
   
   const texts = [
     "AI/ML Engineer",
-    "Neural Architect", 
+    "Full Stack Developer", 
     "Data Scientist",
-    "Full Stack Developer"
+    "Software Architect"
   ];
 
   useEffect(() => {
@@ -36,12 +36,37 @@ const Hero = () => {
     return () => clearTimeout(timeout);
   }, [displayText, currentIndex, isDeleting]);
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+        delayChildren: 0.3,
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        type: "spring",
+        stiffness: 100,
+        damping: 10,
+        mass: 0.8
+      }
+    }
+  };
+
   return (
-    <section id="home" className="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
+    <section id="home" className="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden bg-[radial-gradient(circle_at_50%_50%,rgba(17,17,27,1)_0%,rgba(5,5,16,1)_100%)]">
       {/* Background elements */}
-      <div className="absolute inset-0 z-0">
-        <div className="absolute top-[10%] left-[15%] w-72 h-72 bg-primary/20 rounded-full blur-[128px] animate-pulse" />
-        <div className="absolute bottom-[20%] right-[10%] w-96 h-96 bg-blue-500/10 rounded-full blur-[128px] animate-pulse delay-700" />
+      <div className="absolute inset-0 z-0 overflow-hidden">
+        <div className="absolute top-[10%] left-[15%] w-72 h-72 bg-primary/10 rounded-full blur-[128px] animate-pulse" />
+        <div className="absolute bottom-[20%] right-[10%] w-96 h-96 bg-blue-500/5 rounded-full blur-[128px] animate-pulse delay-700" />
       </div>
 
       <div className="container mx-auto px-6 relative z-10">
@@ -49,37 +74,42 @@ const Hero = () => {
           
           {/* Main Content */}
           <motion.div 
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            variants={containerVariants}
+            initial="hidden"
+            animate="visible"
             className="text-center lg:text-left"
           >
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 backdrop-blur-md mb-6">
+            <motion.div variants={itemVariants} className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 backdrop-blur-md mb-6 shadow-[0_0_15px_rgba(255,255,255,0.05)]">
               <Sparkles size={14} className="text-primary animate-pulse" />
               <span className="text-[10px] font-black uppercase tracking-[0.2em] text-gray-400">System Ready: AI Core Active</span>
-            </div>
+            </motion.div>
 
-            <h1 className="text-4xl sm:text-6xl lg:text-7xl font-black mb-6 leading-[1.1] tracking-tight text-white">
-              Innovating the <br />
-              <span className="bg-gradient-to-r from-primary via-blue-400 to-primary bg-clip-text text-transparent animate-gradient-x">
-                Digital Frontier
+            <motion.h1 
+              variants={itemVariants}
+              whileHover={{ animation: "glitch 0.3s cubic-bezier(.25,.46,.45,.94) both" }}
+              className="text-4xl sm:text-6xl lg:text-7xl font-black mb-6 leading-[1.1] tracking-tight text-white"
+            >
+              Building Smarter <br />
+              <span className="bg-gradient-to-r from-primary via-blue-400 to-primary bg-clip-text text-transparent animate-gradient-x px-1">
+                Digital Systems
               </span>
-            </h1>
+            </motion.h1>
 
-            <div className="flex items-center justify-center lg:justify-start gap-3 text-xl sm:text-2xl text-gray-400 font-medium mb-8">
-              <span className="opacity-50 tracking-widest text-sm uppercase">I am a</span>
-              <div className="relative inline-flex min-w-[200px]">
-                <span className="text-white font-bold tracking-tight">{displayText}</span>
-                <span className="w-1 h-8 bg-primary ml-1 animate-pulse" />
+            <motion.div variants={itemVariants} className="flex items-center justify-center lg:justify-start gap-3 text-xl sm:text-2xl text-gray-400 font-medium mb-10 min-h-[40px]">
+              <span className="opacity-50 tracking-[0.3em] text-[10px] uppercase font-black whitespace-nowrap">I am a</span>
+              <div className="relative inline-flex items-center">
+                <span className="text-white font-bold tracking-tight text-left">{displayText}</span>
+                <span className="w-1 h-6 sm:h-8 bg-primary ml-2 animate-pulse shrink-0 shadow-[0_0_10px_#8B5CF6]" />
               </div>
-            </div>
+            </motion.div>
 
-            <p className="text-gray-400 text-lg mb-10 max-w-xl leading-relaxed mx-auto lg:mx-0">
-              Expertise in crafting sophisticated neural architectures and immersive digital experiences. Bridging the gap between 
-              <span className="text-white font-semibold"> data intelligence </span> and <span className="text-white font-semibold"> human-centric design</span>.
-            </p>
+            <motion.p variants={itemVariants} className="text-gray-400 text-lg mb-10 max-w-xl leading-relaxed mx-auto lg:mx-0">
+              Specializing in machine learning and full-stack development. I design 
+              <span className="text-white font-semibold"> efficient algorithms </span> and build 
+              <span className="text-white font-semibold"> scalable applications </span> that solve real-world problems.
+            </motion.p>
 
-            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4">
+            <motion.div variants={itemVariants} className="flex flex-wrap items-center justify-center lg:justify-start gap-4">
               <motion.a
                 whileHover={{ scale: 1.05, boxShadow: "0 0 30px rgba(139,92,246,0.3)" }}
                 whileTap={{ scale: 0.95 }}
@@ -97,16 +127,16 @@ const Hero = () => {
                 ].map((social, i) => (
                   <motion.a
                     key={i}
-                    whileHover={{ scale: 1.1, backgroundColor: "rgba(255,255,255,0.1)" }}
+                    whileHover={{ scale: 1.1, backgroundColor: "rgba(255,255,255,0.1)", y: -5 }}
                     href={social.link}
                     target="_blank"
-                    className="w-12 h-12 flex items-center justify-center border border-white/10 rounded-2xl text-white/50 hover:text-white transition-colors backdrop-blur-md"
+                    className="w-12 h-12 flex items-center justify-center border border-white/10 rounded-2xl text-white/50 hover:text-white transition-all backdrop-blur-md"
                   >
                     <social.icon size={20} />
                   </motion.a>
                 ))}
               </div>
-            </div>
+            </motion.div>
           </motion.div>
 
           {/* Visual Element */}
@@ -114,8 +144,9 @@ const Hero = () => {
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1, delay: 0.2 }}
-            className="hidden lg:flex justify-center relative"
+            className="flex justify-center relative mt-20 lg:mt-0"
           >
+            <div className="scale-[0.75] sm:scale-90 lg:scale-100 relative">
             {/* Rotating Rings */}
             <div className="absolute inset-0 flex items-center justify-center -z-10">
               <div className="w-[450px] h-[450px] border border-white/5 rounded-full animate-rotate-slow" />
@@ -152,6 +183,7 @@ const Hero = () => {
                    <Cpu size={24} />
                  </div>
                </motion.div>
+            </div>
             </div>
           </motion.div>
         </div>
